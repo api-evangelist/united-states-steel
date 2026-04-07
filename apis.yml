@@ -1,7 +1,12 @@
 aid: united-states-steel
-url: https://raw.githubusercontent.com/api-evangelist/united-states-steel/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/united-states-steel/refs/heads/main/apis.yml
 modified: '2026-03-21'
 apis: []
 common:
   - type: Website
     url: https://www.united-states-steel.com
+description: >-
+  United States Steel is an integrated steel producer with major production operations
+  in the United States and Central Europe, serving customers in the automotive, construction,
+  container, and other industries.
