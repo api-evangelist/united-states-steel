@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/united-states-steel/refs/heads/main/json-schema/steeltrack-test-report-list-schema.json",
+  "title": "TestReportList",
+  "description": "Paginated list of test reports.",
+  "type": "object",
+  "properties": {
+    "total": {
+      "type": "integer",
+      "description": "Total number of matching test reports.",
+      "example": 5
+    },
+    "reports": {
+      "type": "array",
+      "description": "List of test report records.",
+      "items": {
+        "$ref": "#/components/schemas/TestReport"
+      }
+    }
+  }
+}

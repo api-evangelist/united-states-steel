@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/united-states-steel/refs/heads/main/json-schema/steeltrack-order-schema.json",
+  "title": "Order",
+  "description": "A U.S. Steel customer order.",
+  "type": "object",
+  "properties": {
+    "orderId": {
+      "type": "string",
+      "description": "Unique order identifier.",
+      "example": "ORD-2025-001234"
+    },
+    "customerId": {
+      "type": "string",
+      "description": "Customer account identifier.",
+      "example": "CUST-001234"
+    },
+    "purchaseOrder": {
+      "type": "string",
+      "description": "Customer purchase order number.",
+      "example": "PO-2025-5678"
+    },
+    "status": {
+      "type": "string",
+      "description": "Current order status.",
+      "enum": [
+        "OPEN",
+        "IN_PRODUCTION",
+        "SHIPPED",
+        "CLOSED",
+        "CANCELLED"
+      ],
+      "example": "IN_PRODUCTION"
+    },
+    "facility": {
+      "type": "string",
+      "description": "Production facility name or code.",
+      "example": "Gary Works"
+    },
+    "product": {
+      "type": "string",
+      "description": "Steel product type.",
+      "example": "Hot-Rolled Coil"
+    },
+    "grade": {
+      "type": "string",
+      "description": "Steel grade designation.",
+      "example": "A36"
+    },
+    "quantity": {
+      "type": "number",
+      "description": "Order quantity.",
+      "example": 50.0
+    },
+    "quantityUnit": {
+      "type": "string",
+      "description": "Unit of measure for quantity.",
+      "example": "tons"
+    },
+    "orderDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the order was placed.",
+      "example": "2025-01-15"
+    },
+    "requiredDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Customer required delivery date.",
+      "example": "2025-03-01"
+    },
+    "estimatedDeliveryDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Estimated delivery date from US Steel.",
+      "example": "2025-02-28"
+    }
+  }
+}

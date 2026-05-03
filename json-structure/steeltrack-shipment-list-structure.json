@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/united-states-steel/refs/heads/main/json-structure/steeltrack-shipment-list-structure.json",
+  "name": "ShipmentList",
+  "description": "Paginated list of shipments.",
+  "properties": {
+    "total": {
+      "description": "Total number of matching shipments.",
+      "example": 10,
+      "type": "int32"
+    },
+    "shipments": {
+      "description": "List of shipment records.",
+      "items": {
+        "$ref": "#/components/schemas/Shipment"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

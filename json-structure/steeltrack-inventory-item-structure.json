@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/united-states-steel/refs/heads/main/json-structure/steeltrack-inventory-item-structure.json",
+  "name": "InventoryItem",
+  "description": "An inventory item available to the customer.",
+  "properties": {
+    "itemId": {
+      "description": "Unique inventory item identifier.",
+      "example": "INV-CR-001234",
+      "type": "string"
+    },
+    "customerId": {
+      "description": "Customer account identifier.",
+      "example": "CUST-001234",
+      "type": "string"
+    },
+    "orderId": {
+      "description": "Associated order identifier.",
+      "example": "ORD-2025-001234",
+      "type": "string"
+    },
+    "product": {
+      "description": "Steel product type.",
+      "example": "Cold-Rolled Coil",
+      "type": "string"
+    },
+    "grade": {
+      "description": "Steel grade designation.",
+      "example": "IF",
+      "type": "string"
+    },
+    "coilId": {
+      "description": "Individual coil identifier.",
+      "example": "COIL-8765432",
+      "type": "string"
+    },
+    "weight": {
+      "description": "Item weight.",
+      "example": 28.5,
+      "type": "double"
+    },
+    "weightUnit": {
+      "description": "Weight unit.",
+      "example": "tons",
+      "type": "string"
+    },
+    "location": {
+      "description": "Storage or production facility location.",
+      "example": "Gary Works",
+      "type": "string"
+    },
+    "status": {
+      "description": "Inventory item availability status.",
+      "enum": [
+        "AVAILABLE",
+        "RESERVED",
+        "IN_TRANSIT",
+        "ON_HOLD"
+      ],
+      "example": "AVAILABLE",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

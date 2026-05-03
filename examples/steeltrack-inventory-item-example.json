@@ -1,0 +1,12 @@
+{
+  "itemId": "INV-CR-001234",
+  "customerId": "CUST-001234",
+  "orderId": "ORD-2025-001234",
+  "product": "Cold-Rolled Coil",
+  "grade": "IF",
+  "coilId": "COIL-8765432",
+  "weight": 28.5,
+  "weightUnit": "tons",
+  "location": "Gary Works",
+  "status": "AVAILABLE"
+}

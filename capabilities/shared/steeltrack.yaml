@@ -1,0 +1,257 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "U.S. Steel SteelTrack API"
+  description: "Order management, inventory tracking, shipment history, and test reporting for U.S. Steel customers."
+  tags:
+    - U.S. Steel
+    - Supply Chain
+    - Order Management
+    - Manufacturing
+  created: "2026-05-03"
+  modified: "2026-05-03"
+
+binds:
+  - namespace: env
+    keys:
+      USSTEEL_BEARER_TOKEN: USSTEEL_BEARER_TOKEN
+
+capability:
+  consumes:
+    - type: http
+      namespace: ussteel-steeltrack
+      baseUri: https://steeltrack.ussteel.com/api
+      description: "U.S. Steel SteelTrack customer platform API."
+      authentication:
+        type: bearer
+        token: "{{USSTEEL_BEARER_TOKEN}}"
+      resources:
+        - name: orders
+          path: /orders
+          description: "Steel order management."
+          operations:
+            - name: list-orders
+              method: GET
+              description: "List orders with optional filters."
+              inputParameters:
+                - name: status
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by order status."
+                - name: customerId
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by customer ID."
+                - name: limit
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Max results."
+                - name: offset
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Pagination offset."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: get-order
+              method: GET
+              description: "Get order details by order ID."
+              inputParameters:
+                - name: orderId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Order identifier."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: inventory
+          path: /inventory
+          description: "Customer inventory tracking."
+          operations:
+            - name: list-inventory
+              method: GET
+              description: "List available inventory items."
+              inputParameters:
+                - name: customerId
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by customer ID."
+                - name: product
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by product type."
+                - name: grade
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by steel grade."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: shipments
+          path: /shipments
+          description: "Shipment history and tracking."
+          operations:
+            - name: list-shipments
+              method: GET
+              description: "List shipment history."
+              inputParameters:
+                - name: orderId
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by order ID."
+                - name: purchaseOrder
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by purchase order."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+        - name: test-reports
+          path: /test-reports
+          description: "Steel product test reports."
+          operations:
+            - name: list-test-reports
+              method: GET
+              description: "List test reports for steel products."
+              inputParameters:
+                - name: coilId
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by coil ID."
+                - name: orderId
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by order ID."
+                - name: reportType
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by report type."
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: ussteel-steeltrack-rest
+      resources:
+        - path: /v1/orders
+          name: orders
+          description: "Steel order management."
+          operations:
+            - method: GET
+              name: list-orders
+              description: "List orders."
+              call: "ussteel-steeltrack.list-orders"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/inventory
+          name: inventory
+          description: "Inventory tracking."
+          operations:
+            - method: GET
+              name: list-inventory
+              description: "List inventory."
+              call: "ussteel-steeltrack.list-inventory"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/shipments
+          name: shipments
+          description: "Shipment history."
+          operations:
+            - method: GET
+              name: list-shipments
+              description: "List shipments."
+              call: "ussteel-steeltrack.list-shipments"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/test-reports
+          name: test-reports
+          description: "Test reports."
+          operations:
+            - method: GET
+              name: list-test-reports
+              description: "List test reports."
+              call: "ussteel-steeltrack.list-test-reports"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9100
+      namespace: ussteel-steeltrack-mcp
+      transport: http
+      tools:
+        - name: list-orders
+          description: "List U.S. Steel customer orders with optional status and date filters."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "ussteel-steeltrack.list-orders"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-order
+          description: "Get detailed information for a specific U.S. Steel order."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "ussteel-steeltrack.get-order"
+          with:
+            orderId: "tools.orderId"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-inventory
+          description: "List available U.S. Steel inventory items filterable by product and grade."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "ussteel-steeltrack.list-inventory"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-shipments
+          description: "List U.S. Steel shipment history by order or purchase order."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "ussteel-steeltrack.list-shipments"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-test-reports
+          description: "List certified physical, mechanical, and chemical test reports for steel products."
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "ussteel-steeltrack.list-test-reports"
+          outputParameters:
+            - type: object
+              mapping: "$."

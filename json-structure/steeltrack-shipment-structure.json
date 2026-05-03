@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/united-states-steel/refs/heads/main/json-structure/steeltrack-shipment-structure.json",
+  "name": "Shipment",
+  "description": "A shipment record for a steel order.",
+  "properties": {
+    "shipmentId": {
+      "description": "Unique shipment identifier.",
+      "example": "SHIP-2025-9876",
+      "type": "string"
+    },
+    "orderId": {
+      "description": "Associated order identifier.",
+      "example": "ORD-2025-001234",
+      "type": "string"
+    },
+    "purchaseOrder": {
+      "description": "Customer purchase order number.",
+      "example": "PO-2025-5678",
+      "type": "string"
+    },
+    "shipDate": {
+      "description": "Date the order was shipped.",
+      "example": "2025-02-14",
+      "type": "date"
+    },
+    "carrier": {
+      "description": "Carrier type used for shipment.",
+      "enum": [
+        "Rail",
+        "Truck",
+        "Barge",
+        "Intermodal"
+      ],
+      "example": "Rail",
+      "type": "string"
+    },
+    "destination": {
+      "description": "Destination city and state.",
+      "example": "Detroit, MI",
+      "type": "string"
+    },
+    "weight": {
+      "description": "Shipment total weight.",
+      "example": 50.0,
+      "type": "double"
+    },
+    "weightUnit": {
+      "description": "Weight unit.",
+      "example": "tons",
+      "type": "string"
+    },
+    "status": {
+      "description": "Shipment delivery status.",
+      "enum": [
+        "DISPATCHED",
+        "IN_TRANSIT",
+        "DELIVERED",
+        "EXCEPTION"
+      ],
+      "example": "DELIVERED",
+      "type": "string"
+    }
+  },
+  "type": "object"
+}

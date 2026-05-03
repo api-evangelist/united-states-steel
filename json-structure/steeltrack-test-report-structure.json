@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/united-states-steel/refs/heads/main/json-structure/steeltrack-test-report-structure.json",
+  "name": "TestReport",
+  "description": "A physical, mechanical, or chemical test report for a steel product.",
+  "properties": {
+    "reportId": {
+      "description": "Unique test report identifier.",
+      "example": "RPT-2025-4321",
+      "type": "string"
+    },
+    "coilId": {
+      "description": "Coil or material identifier.",
+      "example": "COIL-8765432",
+      "type": "string"
+    },
+    "orderId": {
+      "description": "Associated order identifier.",
+      "example": "ORD-2025-001234",
+      "type": "string"
+    },
+    "product": {
+      "description": "Steel product type.",
+      "example": "Cold-Rolled Coil",
+      "type": "string"
+    },
+    "grade": {
+      "description": "Steel grade designation.",
+      "example": "IF",
+      "type": "string"
+    },
+    "reportType": {
+      "description": "Type of test report.",
+      "enum": [
+        "MECHANICAL",
+        "CHEMICAL",
+        "PHYSICAL"
+      ],
+      "example": "MECHANICAL",
+      "type": "string"
+    },
+    "certified": {
+      "description": "Whether this is a certified test report with electronic signature.",
+      "example": true,
+      "type": "boolean"
+    },
+    "reportDate": {
+      "description": "Date the test report was issued.",
+      "example": "2025-02-10",
+      "type": "date"
+    },
+    "yieldStrength": {
+      "description": "Yield strength in ksi.",
+      "example": 34,
+      "type": "double"
+    },
+    "tensileStrength": {
+      "description": "Tensile strength in ksi.",
+      "example": 47,
+      "type": "double"
+    },
+    "elongation": {
+      "description": "Elongation percentage.",
+      "example": 44,
+      "type": "double"
+    }
+  },
+  "type": "object"
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/united-states-steel/refs/heads/main/json-structure/steeltrack-order-list-structure.json",
+  "name": "OrderList",
+  "description": "Paginated list of orders.",
+  "properties": {
+    "total": {
+      "description": "Total number of matching orders.",
+      "example": 25,
+      "type": "int32"
+    },
+    "orders": {
+      "description": "List of order records.",
+      "items": {
+        "$ref": "#/components/schemas/Order"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

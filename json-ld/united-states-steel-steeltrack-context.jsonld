@@ -1,0 +1,153 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "uss": "https://ussteel.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "InventoryItem": "uss:InventoryItem",
+    "InventoryList": "uss:InventoryList",
+    "OrderList": "uss:OrderList",
+    "Order": "uss:Order",
+    "ShipmentList": "uss:ShipmentList",
+    "Shipment": "uss:Shipment",
+    "TestReportList": "uss:TestReportList",
+    "TestReport": "uss:TestReport",
+    "itemId": {
+      "@id": "uss:itemId",
+      "@type": "xsd:string"
+    },
+    "customerId": {
+      "@id": "uss:customerId",
+      "@type": "xsd:string"
+    },
+    "orderId": {
+      "@id": "uss:orderId",
+      "@type": "xsd:string"
+    },
+    "product": {
+      "@id": "uss:product",
+      "@type": "xsd:string"
+    },
+    "grade": {
+      "@id": "uss:grade",
+      "@type": "xsd:string"
+    },
+    "coilId": {
+      "@id": "uss:coilId",
+      "@type": "xsd:string"
+    },
+    "weight": {
+      "@id": "uss:weight",
+      "@type": "xsd:decimal"
+    },
+    "weightUnit": {
+      "@id": "uss:weightUnit",
+      "@type": "xsd:string"
+    },
+    "location": {
+      "@id": "uss:location",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "uss:status",
+      "@type": "xsd:string"
+    },
+    "total": {
+      "@id": "uss:total",
+      "@type": "xsd:integer"
+    },
+    "items": {
+      "@id": "uss:items",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "orders": {
+      "@id": "uss:orders",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "purchaseOrder": {
+      "@id": "uss:purchaseOrder",
+      "@type": "xsd:string"
+    },
+    "facility": {
+      "@id": "uss:facility",
+      "@type": "xsd:string"
+    },
+    "quantity": {
+      "@id": "uss:quantity",
+      "@type": "xsd:decimal"
+    },
+    "quantityUnit": {
+      "@id": "uss:quantityUnit",
+      "@type": "xsd:string"
+    },
+    "orderDate": {
+      "@id": "uss:orderDate",
+      "@type": "xsd:date"
+    },
+    "requiredDate": {
+      "@id": "uss:requiredDate",
+      "@type": "xsd:date"
+    },
+    "estimatedDeliveryDate": {
+      "@id": "uss:estimatedDeliveryDate",
+      "@type": "xsd:date"
+    },
+    "shipments": {
+      "@id": "uss:shipments",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "shipmentId": {
+      "@id": "uss:shipmentId",
+      "@type": "xsd:string"
+    },
+    "shipDate": {
+      "@id": "uss:shipDate",
+      "@type": "xsd:date"
+    },
+    "carrier": {
+      "@id": "uss:carrier",
+      "@type": "xsd:string"
+    },
+    "destination": {
+      "@id": "uss:destination",
+      "@type": "xsd:string"
+    },
+    "reports": {
+      "@id": "uss:reports",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "reportId": {
+      "@id": "uss:reportId",
+      "@type": "xsd:string"
+    },
+    "reportType": {
+      "@id": "uss:reportType",
+      "@type": "xsd:string"
+    },
+    "certified": {
+      "@id": "uss:certified",
+      "@type": "xsd:boolean"
+    },
+    "reportDate": {
+      "@id": "uss:reportDate",
+      "@type": "xsd:date"
+    },
+    "yieldStrength": {
+      "@id": "uss:yieldStrength",
+      "@type": "xsd:decimal"
+    },
+    "tensileStrength": {
+      "@id": "uss:tensileStrength",
+      "@type": "xsd:decimal"
+    },
+    "elongation": {
+      "@id": "uss:elongation",
+      "@type": "xsd:decimal"
+    }
+  }
+}

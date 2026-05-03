@@ -1,0 +1,13 @@
+{
+  "reportId": "RPT-2025-4321",
+  "coilId": "COIL-8765432",
+  "orderId": "ORD-2025-001234",
+  "product": "Cold-Rolled Coil",
+  "grade": "IF",
+  "reportType": "MECHANICAL",
+  "certified": true,
+  "reportDate": "2025-02-10",
+  "yieldStrength": 34,
+  "tensileStrength": 47,
+  "elongation": 44
+}

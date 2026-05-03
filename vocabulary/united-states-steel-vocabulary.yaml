@@ -1,0 +1,202 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "United States Steel"
+  description: "Unified taxonomy mapping U.S. Steel API operational and capability dimensions for supply chain, order management, and quality documentation."
+  created: "2026-05-03"
+  modified: "2026-05-03"
+
+operational:
+  apis:
+    - namespace: ussteel-steeltrack
+      version: "1.0"
+      baseUrl: https://steeltrack.ussteel.com/api
+      status: active
+
+  resources:
+    - name: orders
+      apis:
+        - ussteel-steeltrack
+      actions:
+        - list
+        - get
+    - name: inventory
+      apis:
+        - ussteel-steeltrack
+      actions:
+        - list
+    - name: shipments
+      apis:
+        - ussteel-steeltrack
+      actions:
+        - list
+    - name: test-reports
+      apis:
+        - ussteel-steeltrack
+      actions:
+        - list
+
+  actions:
+    - name: list
+      httpMethod: GET
+      pattern: read
+    - name: get
+      httpMethod: GET
+      pattern: read
+
+  schemas:
+    core:
+      - name: Order
+        api: ussteel-steeltrack
+        keyProperties:
+          - orderId
+          - customerId
+          - status
+          - facility
+          - product
+          - grade
+      - name: Shipment
+        api: ussteel-steeltrack
+        keyProperties:
+          - shipmentId
+          - orderId
+          - shipDate
+          - carrier
+          - destination
+          - status
+      - name: TestReport
+        api: ussteel-steeltrack
+        keyProperties:
+          - reportId
+          - coilId
+          - grade
+          - reportType
+          - certified
+          - yieldStrength
+          - tensileStrength
+
+  enums:
+    orderStatus:
+      - OPEN
+      - IN_PRODUCTION
+      - SHIPPED
+      - CLOSED
+      - CANCELLED
+    inventoryStatus:
+      - AVAILABLE
+      - RESERVED
+      - IN_TRANSIT
+      - ON_HOLD
+    carriers:
+      - Rail
+      - Truck
+      - Barge
+      - Intermodal
+    reportTypes:
+      - MECHANICAL
+      - CHEMICAL
+      - PHYSICAL
+
+  authentication:
+    schemes:
+      - type: bearer
+        name: bearerAuth
+        description: Bearer token authentication for SteelTrack platform
+        apisUsing:
+          - ussteel-steeltrack
+
+capability:
+  workflows:
+    - name: supply-chain-management
+      file: capabilities/supply-chain-management.yaml
+      description: Complete U.S. Steel supply chain from order tracking through shipment and quality certification
+      apisCombined:
+        - ussteel-steeltrack
+      toolCount: 5
+      personas:
+        - procurement-manager
+        - supply-chain-analyst
+        - quality-engineer
+      domains:
+        - Supply Chain
+        - Quality Management
+
+  personas:
+    - id: procurement-manager
+      name: Procurement Manager
+      description: Manager overseeing steel procurement and supplier relationship management
+      workflows:
+        - supply-chain-management
+    - id: supply-chain-analyst
+      name: Supply Chain Analyst
+      description: Analyst monitoring order status, inventory levels, and shipment performance
+      workflows:
+        - supply-chain-management
+    - id: quality-engineer
+      name: Quality Engineer
+      description: Engineer accessing certified test reports for compliance and PPAP documentation
+      workflows:
+        - supply-chain-management
+
+  domains:
+    - name: Supply Chain
+      description: Steel procurement and supply chain management
+      resources:
+        - orders
+        - inventory
+        - shipments
+    - name: Quality Management
+      description: Steel product quality documentation and certification
+      resources:
+        - test-reports
+
+  namespaces:
+    consumed:
+      - name: ussteel-steeltrack
+        type: http
+        baseUri: https://steeltrack.ussteel.com/api
+    restExposed:
+      - name: ussteel-supply-chain-api
+        port: 8080
+    mcpExposed:
+      - name: ussteel-supply-chain-mcp
+        port: 9090
+
+  binds:
+    - name: USSTEEL_BEARER_TOKEN
+      description: Bearer token for SteelTrack API authentication
+      workflows:
+        - supply-chain-management
+
+crossReference:
+  - resource: orders
+    operations:
+      - list-orders
+      - get-order
+    workflows:
+      - supply-chain-management
+    personas:
+      - procurement-manager
+      - supply-chain-analyst
+  - resource: inventory
+    operations:
+      - list-inventory
+    workflows:
+      - supply-chain-management
+    personas:
+      - supply-chain-analyst
+      - procurement-manager
+  - resource: shipments
+    operations:
+      - list-shipments
+    workflows:
+      - supply-chain-management
+    personas:
+      - supply-chain-analyst
+  - resource: test-reports
+    operations:
+      - list-test-reports
+    workflows:
+      - supply-chain-management
+    personas:
+      - quality-engineer

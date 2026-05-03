@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/united-states-steel/refs/heads/main/json-structure/steeltrack-inventory-list-structure.json",
+  "name": "InventoryList",
+  "description": "Paginated list of inventory items.",
+  "properties": {
+    "total": {
+      "description": "Total number of inventory items.",
+      "example": 15,
+      "type": "int32"
+    },
+    "items": {
+      "description": "List of inventory items.",
+      "items": {
+        "$ref": "#/components/schemas/InventoryItem"
+      },
+      "type": "array"
+    }
+  },
+  "type": "object"
+}

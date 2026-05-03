@@ -1,0 +1,11 @@
+{
+  "shipmentId": "SHIP-2025-9876",
+  "orderId": "ORD-2025-001234",
+  "purchaseOrder": "PO-2025-5678",
+  "shipDate": "2025-02-14",
+  "carrier": "Rail",
+  "destination": "Detroit, MI",
+  "weight": 50.0,
+  "weightUnit": "tons",
+  "status": "DELIVERED"
+}

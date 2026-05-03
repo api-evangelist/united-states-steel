@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/united-states-steel/refs/heads/main/json-structure/steeltrack-order-structure.json",
+  "name": "Order",
+  "description": "A U.S. Steel customer order.",
+  "properties": {
+    "orderId": {
+      "description": "Unique order identifier.",
+      "example": "ORD-2025-001234",
+      "type": "string"
+    },
+    "customerId": {
+      "description": "Customer account identifier.",
+      "example": "CUST-001234",
+      "type": "string"
+    },
+    "purchaseOrder": {
+      "description": "Customer purchase order number.",
+      "example": "PO-2025-5678",
+      "type": "string"
+    },
+    "status": {
+      "description": "Current order status.",
+      "enum": [
+        "OPEN",
+        "IN_PRODUCTION",
+        "SHIPPED",
+        "CLOSED",
+        "CANCELLED"
+      ],
+      "example": "IN_PRODUCTION",
+      "type": "string"
+    },
+    "facility": {
+      "description": "Production facility name or code.",
+      "example": "Gary Works",
+      "type": "string"
+    },
+    "product": {
+      "description": "Steel product type.",
+      "example": "Hot-Rolled Coil",
+      "type": "string"
+    },
+    "grade": {
+      "description": "Steel grade designation.",
+      "example": "A36",
+      "type": "string"
+    },
+    "quantity": {
+      "description": "Order quantity.",
+      "example": 50.0,
+      "type": "double"
+    },
+    "quantityUnit": {
+      "description": "Unit of measure for quantity.",
+      "example": "tons",
+      "type": "string"
+    },
+    "orderDate": {
+      "description": "Date the order was placed.",
+      "example": "2025-01-15",
+      "type": "date"
+    },
+    "requiredDate": {
+      "description": "Customer required delivery date.",
+      "example": "2025-03-01",
+      "type": "date"
+    },
+    "estimatedDeliveryDate": {
+      "description": "Estimated delivery date from US Steel.",
+      "example": "2025-02-28",
+      "type": "date"
+    }
+  },
+  "type": "object"
+}

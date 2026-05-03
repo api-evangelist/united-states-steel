@@ -1,0 +1,14 @@
+{
+  "orderId": "ORD-2025-001234",
+  "customerId": "CUST-001234",
+  "purchaseOrder": "PO-2025-5678",
+  "status": "IN_PRODUCTION",
+  "facility": "Gary Works",
+  "product": "Hot-Rolled Coil",
+  "grade": "A36",
+  "quantity": 50.0,
+  "quantityUnit": "tons",
+  "orderDate": "2025-01-15",
+  "requiredDate": "2025-03-01",
+  "estimatedDeliveryDate": "2025-02-28"
+}
