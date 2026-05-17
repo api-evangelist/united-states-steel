@@ -47,7 +47,7 @@ apis:
       - type: JSONStructure
         url: json-structure/steeltrack-order-structure.json
         title: Order Structure
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/united-states-steel-steeltrack-context.jsonld
       - type: Example
         url: examples/steeltrack-order-example.json
