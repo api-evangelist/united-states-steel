@@ -1,0 +1,91 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: U.S. Steel SteelTrack API — Test Reports
+  description: 'U.S. Steel SteelTrack API — Test Reports. 1 operations. Lead operation: U.S. Steel SteelTrack List Test Reports.
+    Self-contained Naftiko capability covering one United States Steel business surface.'
+  tags:
+  - United States Steel
+  - Test Reports
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    UNITED_STATES_STEEL_API_KEY: UNITED_STATES_STEEL_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: steeltrack-test-reports
+    baseUri: https://steeltrack.ussteel.com/api
+    description: U.S. Steel SteelTrack API — Test Reports business capability. Self-contained, no shared references.
+    resources:
+    - name: test-reports
+      path: /test-reports
+      operations:
+      - name: listtestreports
+        method: GET
+        description: U.S. Steel SteelTrack List Test Reports
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: coilId
+          in: query
+          type: string
+          description: Filter by coil ID.
+        - name: orderId
+          in: query
+          type: string
+          description: Filter by order ID.
+        - name: reportType
+          in: query
+          type: string
+          description: Filter by test report type.
+    authentication:
+      type: bearer
+      token: '{{env.UNITED_STATES_STEEL_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: steeltrack-test-reports-rest
+    port: 8080
+    description: REST adapter for U.S. Steel SteelTrack API — Test Reports. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/test-reports
+      name: test-reports
+      description: REST surface for test-reports.
+      operations:
+      - method: GET
+        name: listtestreports
+        description: U.S. Steel SteelTrack List Test Reports
+        call: steeltrack-test-reports.listtestreports
+        with:
+          coilId: rest.coilId
+          orderId: rest.orderId
+          reportType: rest.reportType
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: steeltrack-test-reports-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for U.S. Steel SteelTrack API — Test Reports. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: u-s-steel-steeltrack-list-test
+      description: U.S. Steel SteelTrack List Test Reports
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: steeltrack-test-reports.listtestreports
+      with:
+        coilId: tools.coilId
+        orderId: tools.orderId
+        reportType: tools.reportType
+      outputParameters:
+      - type: object
+        mapping: $.
