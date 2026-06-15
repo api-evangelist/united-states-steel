@@ -1,0 +1,251 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "U.S. Steel SteelTrack API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "U.S. Steel SteelTrack List Orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://steeltrack.ussteel.com/api/orders",
+            "params": [
+              {
+                "name": "facility",
+                "value": "GH",
+                "type": "query",
+                "description": "Filter by production facility code."
+              },
+              {
+                "name": "status",
+                "value": "OPEN",
+                "type": "query",
+                "description": "Filter by order status."
+              },
+              {
+                "name": "customerId",
+                "value": "CUST-001234",
+                "type": "query",
+                "description": "Filter by customer ID."
+              },
+              {
+                "name": "fromDate",
+                "value": "2025-01-01",
+                "type": "query",
+                "description": "Start date for order date range filter (YYYY-MM-DD)."
+              },
+              {
+                "name": "toDate",
+                "value": "2025-03-31",
+                "type": "query",
+                "description": "End date for order date range filter (YYYY-MM-DD)."
+              },
+              {
+                "name": "limit",
+                "value": "50",
+                "type": "query",
+                "description": "Maximum number of results to return."
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query",
+                "description": "Number of results to skip for pagination."
+              }
+            ]
+          },
+          "docs": "Returns a list of orders with customizable filtering by facility, status, and date range. Supports sorting by multiple fields."
+        },
+        {
+          "info": {
+            "name": "U.S. Steel SteelTrack Get Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://steeltrack.ussteel.com/api/orders/:orderId",
+            "params": [
+              {
+                "name": "orderId",
+                "value": "ORD-2025-001234",
+                "type": "path",
+                "description": "The unique order identifier."
+              }
+            ]
+          },
+          "docs": "Returns detailed information for a specific order including line items, production status, and delivery details."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Inventory",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "U.S. Steel SteelTrack List Inventory",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://steeltrack.ussteel.com/api/inventory",
+            "params": [
+              {
+                "name": "customerId",
+                "value": "CUST-001234",
+                "type": "query",
+                "description": "Filter by customer ID."
+              },
+              {
+                "name": "product",
+                "value": "Cold-Rolled Coil",
+                "type": "query",
+                "description": "Filter by product type."
+              },
+              {
+                "name": "grade",
+                "value": "IF",
+                "type": "query",
+                "description": "Filter by steel grade."
+              },
+              {
+                "name": "facility",
+                "value": "",
+                "type": "query",
+                "description": "Filter by production facility."
+              },
+              {
+                "name": "limit",
+                "value": "100",
+                "type": "query",
+                "description": "Maximum number of results to return."
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query",
+                "description": "Pagination offset."
+              }
+            ]
+          },
+          "docs": "Returns on-hand inventory available for the customer, filterable by product, grade, and facility. Supports sorting by multiple fields including OP, customer, PO, and part number."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Shipments",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "U.S. Steel SteelTrack List Shipments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://steeltrack.ussteel.com/api/shipments",
+            "params": [
+              {
+                "name": "orderId",
+                "value": "ORD-2025-001234",
+                "type": "query",
+                "description": "Filter by order ID."
+              },
+              {
+                "name": "purchaseOrder",
+                "value": "PO-2025-5678",
+                "type": "query",
+                "description": "Filter by purchase order number."
+              },
+              {
+                "name": "fromDate",
+                "value": "2025-01-01",
+                "type": "query",
+                "description": "Start date for shipment date range."
+              },
+              {
+                "name": "toDate",
+                "value": "2025-03-31",
+                "type": "query",
+                "description": "End date for shipment date range."
+              },
+              {
+                "name": "includeCoilDetail",
+                "value": "false",
+                "type": "query",
+                "description": "Whether to include coil-level detail in the response."
+              },
+              {
+                "name": "limit",
+                "value": "50",
+                "type": "query",
+                "description": "Maximum number of results to return."
+              }
+            ]
+          },
+          "docs": "Returns shipment history searchable by order item, part number, and purchase order, with optional coil-level detail."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Test Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "U.S. Steel SteelTrack List Test Reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://steeltrack.ussteel.com/api/test-reports",
+            "params": [
+              {
+                "name": "coilId",
+                "value": "COIL-8765432",
+                "type": "query",
+                "description": "Filter by coil ID."
+              },
+              {
+                "name": "orderId",
+                "value": "ORD-2025-001234",
+                "type": "query",
+                "description": "Filter by order ID."
+              },
+              {
+                "name": "reportType",
+                "value": "ALL",
+                "type": "query",
+                "description": "Filter by test report type."
+              }
+            ]
+          },
+          "docs": "Returns physical, mechanical, and chemical test reports for steel products. Includes certified test reports with electronic signatures."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

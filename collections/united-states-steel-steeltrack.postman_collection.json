@@ -1,0 +1,1150 @@
+{
+  "item": [
+    {
+      "id": "71fe325f-3941-4982-ad4b-e305dd00a8dd",
+      "name": "Orders",
+      "description": {
+        "content": "Order status and summary reporting operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7aec97d2-551c-4905-8aec-a37240d96c83",
+          "name": "U.S. Steel SteelTrack List Orders",
+          "request": {
+            "name": "U.S. Steel SteelTrack List Orders",
+            "description": {
+              "content": "Returns a list of orders with customizable filtering by facility, status, and date range. Supports sorting by multiple fields.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "facility",
+                  "value": "<string>",
+                  "description": "Filter by production facility code."
+                },
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>",
+                  "description": "Filter by order status."
+                },
+                {
+                  "disabled": false,
+                  "key": "customerId",
+                  "value": "<string>",
+                  "description": "Filter by customer ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "fromDate",
+                  "value": "<date>",
+                  "description": "Start date for order date range filter (YYYY-MM-DD)."
+                },
+                {
+                  "disabled": false,
+                  "key": "toDate",
+                  "value": "<date>",
+                  "description": "End date for order date range filter (YYYY-MM-DD)."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Number of results to skip for pagination."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "af80cc80-64f9-4ff8-bf63-99bdae3fc775",
+              "name": "Orders returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "facility",
+                      "value": "GH"
+                    },
+                    {
+                      "key": "status",
+                      "value": "OPEN"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "CUST-001234"
+                    },
+                    {
+                      "key": "fromDate",
+                      "value": "2025-01-01"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "2025-03-31"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 2,\n  \"orders\": [\n    {\n      \"orderId\": \"ORD-2025-001234\",\n      \"customerId\": \"CUST-001234\",\n      \"purchaseOrder\": \"PO-2025-5678\",\n      \"status\": \"IN_PRODUCTION\",\n      \"facility\": \"GH\",\n      \"product\": \"Hot-Rolled Coil\",\n      \"quantity\": 50,\n      \"quantityUnit\": \"tons\",\n      \"orderDate\": \"2025-01-15\",\n      \"requiredDate\": \"2025-03-01\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e5f352be-6982-4376-b2e8-d39534fbe42c",
+              "name": "Bad request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "facility",
+                      "value": "GH"
+                    },
+                    {
+                      "key": "status",
+                      "value": "OPEN"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "CUST-001234"
+                    },
+                    {
+                      "key": "fromDate",
+                      "value": "2025-01-01"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "2025-03-31"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"INVALID_REQUEST\",\n  \"message\": \"Invalid order ID format\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "498b2d04-cd4e-4a24-bc06-813cf3c256c4",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "facility",
+                      "value": "GH"
+                    },
+                    {
+                      "key": "status",
+                      "value": "OPEN"
+                    },
+                    {
+                      "key": "customerId",
+                      "value": "CUST-001234"
+                    },
+                    {
+                      "key": "fromDate",
+                      "value": "2025-01-01"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "2025-03-31"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"INVALID_REQUEST\",\n  \"message\": \"Invalid order ID format\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "59844163-6166-419a-a041-60ea2610a0e5",
+          "name": "U.S. Steel SteelTrack Get Order",
+          "request": {
+            "name": "U.S. Steel SteelTrack Get Order",
+            "description": {
+              "content": "Returns detailed information for a specific order including line items, production status, and delivery details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders",
+                ":orderId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "orderId",
+                  "description": "(Required) The unique order identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2515e721-c35c-4126-b717-5c30f30384ed",
+              "name": "Order details returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) The unique order identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"orderId\": \"ORD-2025-001234\",\n  \"customerId\": \"CUST-001234\",\n  \"purchaseOrder\": \"PO-2025-5678\",\n  \"status\": \"IN_PRODUCTION\",\n  \"facility\": \"Gary Works\",\n  \"product\": \"Hot-Rolled Coil\",\n  \"grade\": \"A36\",\n  \"quantity\": 50,\n  \"quantityUnit\": \"tons\",\n  \"orderDate\": \"2025-01-15\",\n  \"requiredDate\": \"2025-03-01\",\n  \"estimatedDeliveryDate\": \"2025-02-28\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b42d3ead-18b2-4525-9196-b75b5eb53be5",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) The unique order identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"INVALID_REQUEST\",\n  \"message\": \"Invalid order ID format\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "095da7f5-5c21-476a-8104-16cab71979e9",
+              "name": "Order not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders",
+                    ":orderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "orderId",
+                      "description": "(Required) The unique order identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"INVALID_REQUEST\",\n  \"message\": \"Invalid order ID format\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "14dd59a9-7613-4815-8cc7-26926715f7bb",
+      "name": "Inventory",
+      "description": {
+        "content": "Inventory tracking and management operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "92391370-b242-4915-8b64-fc63cf26236c",
+          "name": "U.S. Steel SteelTrack List Inventory",
+          "request": {
+            "name": "U.S. Steel SteelTrack List Inventory",
+            "description": {
+              "content": "Returns on-hand inventory available for the customer, filterable by product, grade, and facility. Supports sorting by multiple fields including OP, customer, PO, and part number.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "inventory"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "customerId",
+                  "value": "<string>",
+                  "description": "Filter by customer ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "product",
+                  "value": "<string>",
+                  "description": "Filter by product type."
+                },
+                {
+                  "disabled": false,
+                  "key": "grade",
+                  "value": "<string>",
+                  "description": "Filter by steel grade."
+                },
+                {
+                  "disabled": false,
+                  "key": "facility",
+                  "value": "<string>",
+                  "description": "Filter by production facility."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "Pagination offset."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f233e0cc-45d6-40d3-be98-d91a9480408e",
+              "name": "Inventory list returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "inventory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "customerId",
+                      "value": "CUST-001234"
+                    },
+                    {
+                      "key": "product",
+                      "value": "Cold-Rolled Coil"
+                    },
+                    {
+                      "key": "grade",
+                      "value": "IF"
+                    },
+                    {
+                      "key": "facility",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 1,\n  \"items\": [\n    {\n      \"itemId\": \"INV-CR-001234\",\n      \"customerId\": \"CUST-001234\",\n      \"orderId\": \"ORD-2025-001234\",\n      \"product\": \"Cold-Rolled Coil\",\n      \"grade\": \"IF\",\n      \"coilId\": \"COIL-8765432\",\n      \"weight\": 28.5,\n      \"weightUnit\": \"tons\",\n      \"location\": \"Gary Works\",\n      \"status\": \"AVAILABLE\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "074c3292-2ae8-4a6e-87f7-f515fcf68a03",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "inventory"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "customerId",
+                      "value": "CUST-001234"
+                    },
+                    {
+                      "key": "product",
+                      "value": "Cold-Rolled Coil"
+                    },
+                    {
+                      "key": "grade",
+                      "value": "IF"
+                    },
+                    {
+                      "key": "facility",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"INVALID_REQUEST\",\n  \"message\": \"Invalid order ID format\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "f67fd862-9476-4ddf-b00e-e291e6b338f0",
+      "name": "Shipments",
+      "description": {
+        "content": "Shipment history and tracking operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "568ca100-a7d7-4472-966a-d734455feda1",
+          "name": "U.S. Steel SteelTrack List Shipments",
+          "request": {
+            "name": "U.S. Steel SteelTrack List Shipments",
+            "description": {
+              "content": "Returns shipment history searchable by order item, part number, and purchase order, with optional coil-level detail.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shipments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "orderId",
+                  "value": "<string>",
+                  "description": "Filter by order ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "purchaseOrder",
+                  "value": "<string>",
+                  "description": "Filter by purchase order number."
+                },
+                {
+                  "disabled": false,
+                  "key": "fromDate",
+                  "value": "<date>",
+                  "description": "Start date for shipment date range."
+                },
+                {
+                  "disabled": false,
+                  "key": "toDate",
+                  "value": "<date>",
+                  "description": "End date for shipment date range."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeCoilDetail",
+                  "value": "<boolean>",
+                  "description": "Whether to include coil-level detail in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "90e7fd85-982e-4d30-9273-eea038844f6a",
+              "name": "Shipments returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shipments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "orderId",
+                      "value": "ORD-2025-001234"
+                    },
+                    {
+                      "key": "purchaseOrder",
+                      "value": "PO-2025-5678"
+                    },
+                    {
+                      "key": "fromDate",
+                      "value": "2025-01-01"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "2025-03-31"
+                    },
+                    {
+                      "key": "includeCoilDetail",
+                      "value": "false"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 1,\n  \"shipments\": [\n    {\n      \"shipmentId\": \"SHIP-2025-9876\",\n      \"orderId\": \"ORD-2025-001234\",\n      \"purchaseOrder\": \"PO-2025-5678\",\n      \"shipDate\": \"2025-02-14\",\n      \"carrier\": \"Rail\",\n      \"destination\": \"Detroit, MI\",\n      \"weight\": 50,\n      \"weightUnit\": \"tons\",\n      \"status\": \"DELIVERED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31333919-4d56-4af1-a9ee-4fac98dc5fdf",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shipments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "orderId",
+                      "value": "ORD-2025-001234"
+                    },
+                    {
+                      "key": "purchaseOrder",
+                      "value": "PO-2025-5678"
+                    },
+                    {
+                      "key": "fromDate",
+                      "value": "2025-01-01"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "2025-03-31"
+                    },
+                    {
+                      "key": "includeCoilDetail",
+                      "value": "false"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"INVALID_REQUEST\",\n  \"message\": \"Invalid order ID format\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "910b529e-1d63-42f6-843a-66b74f36cfe5",
+      "name": "Test Reports",
+      "description": {
+        "content": "Physical, mechanical, and chemical test report operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7f5a89d3-c77f-479d-a464-725ba387bce6",
+          "name": "U.S. Steel SteelTrack List Test Reports",
+          "request": {
+            "name": "U.S. Steel SteelTrack List Test Reports",
+            "description": {
+              "content": "Returns physical, mechanical, and chemical test reports for steel products. Includes certified test reports with electronic signatures.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "test-reports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "coilId",
+                  "value": "<string>",
+                  "description": "Filter by coil ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderId",
+                  "value": "<string>",
+                  "description": "Filter by order ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "reportType",
+                  "value": "<string>",
+                  "description": "Filter by test report type."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "61859946-a1c3-425d-851e-8c99ffff608c",
+              "name": "Test reports returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "test-reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "coilId",
+                      "value": "COIL-8765432"
+                    },
+                    {
+                      "key": "orderId",
+                      "value": "ORD-2025-001234"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "ALL"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 1,\n  \"reports\": [\n    {\n      \"reportId\": \"RPT-2025-4321\",\n      \"coilId\": \"COIL-8765432\",\n      \"orderId\": \"ORD-2025-001234\",\n      \"product\": \"Cold-Rolled Coil\",\n      \"grade\": \"IF\",\n      \"reportType\": \"MECHANICAL\",\n      \"certified\": true,\n      \"reportDate\": \"2025-02-10\",\n      \"yieldStrength\": 34,\n      \"tensileStrength\": 47,\n      \"elongation\": 44\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4cd4c4f9-f891-43fa-9bc7-5b916874b9be",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "test-reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "coilId",
+                      "value": "COIL-8765432"
+                    },
+                    {
+                      "key": "orderId",
+                      "value": "ORD-2025-001234"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "ALL"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"INVALID_REQUEST\",\n  \"message\": \"Invalid order ID format\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://steeltrack.ussteel.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "aea439b9-3bb8-41e5-bd15-b2ceffd6fa39",
+    "name": "U.S. Steel SteelTrack API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The U.S. Steel SteelTrack platform provides internet-based customer applications for order management, inventory tracking, shipment history, material release, and test reporting. This API exposes the core SteelTrack capabilities for integration with customer ERP, supply chain, and procurement systems.\n\nContact Support:\n Name: U.S. Steel Customer Service",
+      "type": "text/plain"
+    }
+  }
+}
