@@ -23,7 +23,7 @@ apis:
       SteelTrack is U.S. Steel's internet-based customer platform providing order status reporting, inventory tracking,
       shipment history, material release, and physical and chemical test reporting. The API enables ERP and supply chain
       integration for steel order management and quality documentation.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.ussteel.com/about-us/doing-business-with-u.-s.-steel
     baseURL: https://steeltrack.ussteel.com/api
     tags:
