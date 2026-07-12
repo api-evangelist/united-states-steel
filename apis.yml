@@ -52,6 +52,10 @@ apis:
         title: Order Example
     aid: united-states-steel:steeltrack-api
 common:
+  - type: DomainSecurity
+    url: security/united-states-steel-domain-security.yml
+  - type: Authentication
+    url: authentication/united-states-steel-authentication.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/u-s-steel
   - type: Website
