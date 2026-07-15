@@ -52,6 +52,8 @@ apis:
         title: Order Example
     aid: united-states-steel:steeltrack-api
 common:
+  - type: AgenticAccess
+    url: agentic-access/united-states-steel-agentic-access.yml
   - type: DomainSecurity
     url: security/united-states-steel-domain-security.yml
   - type: Authentication
