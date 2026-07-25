@@ -1,0 +1,191 @@
+openapi: 3.1.0
+info:
+  title: U.S. Steel SteelTrack Inventory Shipments API
+  description: The U.S. Steel SteelTrack platform provides internet-based customer applications for order management, inventory tracking, shipment history, material release, and test reporting. This API exposes the core SteelTrack capabilities for integration with customer ERP, supply chain, and procurement systems.
+  version: '1.0'
+  contact:
+    name: U.S. Steel Customer Service
+    url: https://www.ussteel.com/about-us/doing-business-with-u.-s.-steel
+  x-generated-from: documentation
+servers:
+- url: https://steeltrack.ussteel.com/api
+  description: SteelTrack Production
+security:
+- bearerAuth: []
+tags:
+- name: Shipments
+  description: Shipment history and tracking operations
+paths:
+  /shipments:
+    get:
+      operationId: listShipments
+      summary: U.S. Steel SteelTrack List Shipments
+      description: Returns shipment history searchable by order item, part number, and purchase order, with optional coil-level detail.
+      tags:
+      - Shipments
+      parameters:
+      - name: orderId
+        in: query
+        required: false
+        description: Filter by order ID.
+        schema:
+          type: string
+        example: ORD-2025-001234
+      - name: purchaseOrder
+        in: query
+        required: false
+        description: Filter by purchase order number.
+        schema:
+          type: string
+        example: PO-2025-5678
+      - name: fromDate
+        in: query
+        required: false
+        description: Start date for shipment date range.
+        schema:
+          type: string
+          format: date
+        example: '2025-01-01'
+      - name: toDate
+        in: query
+        required: false
+        description: End date for shipment date range.
+        schema:
+          type: string
+          format: date
+        example: '2025-03-31'
+      - name: includeCoilDetail
+        in: query
+        required: false
+        description: Whether to include coil-level detail in the response.
+        schema:
+          type: boolean
+        example: false
+      - name: limit
+        in: query
+        required: false
+        description: Maximum number of results to return.
+        schema:
+          type: integer
+        example: 50
+      responses:
+        '200':
+          description: Shipments returned successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShipmentList'
+              examples:
+                ListShipments200Example:
+                  summary: Default listShipments 200 response
+                  x-microcks-default: true
+                  value:
+                    total: 1
+                    shipments:
+                    - shipmentId: SHIP-2025-9876
+                      orderId: ORD-2025-001234
+                      purchaseOrder: PO-2025-5678
+                      shipDate: '2025-02-14'
+                      carrier: Rail
+                      destination: Detroit, MI
+                      weight: 50.0
+                      weightUnit: tons
+                      status: DELIVERED
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Shipment:
+      type: object
+      description: A shipment record for a steel order.
+      properties:
+        shipmentId:
+          type: string
+          description: Unique shipment identifier.
+          example: SHIP-2025-9876
+        orderId:
+          type: string
+          description: Associated order identifier.
+          example: ORD-2025-001234
+        purchaseOrder:
+          type: string
+          description: Customer purchase order number.
+          example: PO-2025-5678
+        shipDate:
+          type: string
+          format: date
+          description: Date the order was shipped.
+          example: '2025-02-14'
+        carrier:
+          type: string
+          description: Carrier type used for shipment.
+          enum:
+          - Rail
+          - Truck
+          - Barge
+          - Intermodal
+          example: Rail
+        destination:
+          type: string
+          description: Destination city and state.
+          example: Detroit, MI
+        weight:
+          type: number
+          description: Shipment total weight.
+          example: 50.0
+        weightUnit:
+          type: string
+          description: Weight unit.
+          example: tons
+        status:
+          type: string
+          description: Shipment delivery status.
+          enum:
+          - DISPATCHED
+          - IN_TRANSIT
+          - DELIVERED
+          - EXCEPTION
+          example: DELIVERED
+    Error:
+      type: object
+      description: API error response.
+      properties:
+        code:
+          type: string
+          description: Error code.
+          example: INVALID_REQUEST
+        message:
+          type: string
+          description: Human-readable error message.
+          example: Invalid order ID format
+        details:
+          type: string
+          description: Additional error details.
+    ShipmentList:
+      type: object
+      description: Paginated list of shipments.
+      properties:
+        total:
+          type: integer
+          description: Total number of matching shipments.
+          example: 10
+        shipments:
+          type: array
+          description: List of shipment records.
+          items:
+            $ref: '#/components/schemas/Shipment'
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token authentication for SteelTrack API.
+externalDocs:
+  description: U.S. Steel Customer Solutions
+  url: https://www.ussteel.com/about-us/doing-business-with-u.-s.-steel

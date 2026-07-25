@@ -1,0 +1,187 @@
+openapi: 3.1.0
+info:
+  title: U.S. Steel SteelTrack Inventory API
+  description: The U.S. Steel SteelTrack platform provides internet-based customer applications for order management, inventory tracking, shipment history, material release, and test reporting. This API exposes the core SteelTrack capabilities for integration with customer ERP, supply chain, and procurement systems.
+  version: '1.0'
+  contact:
+    name: U.S. Steel Customer Service
+    url: https://www.ussteel.com/about-us/doing-business-with-u.-s.-steel
+  x-generated-from: documentation
+servers:
+- url: https://steeltrack.ussteel.com/api
+  description: SteelTrack Production
+security:
+- bearerAuth: []
+tags:
+- name: Inventory
+  description: Inventory tracking and management operations
+paths:
+  /inventory:
+    get:
+      operationId: listInventory
+      summary: U.S. Steel SteelTrack List Inventory
+      description: Returns on-hand inventory available for the customer, filterable by product, grade, and facility. Supports sorting by multiple fields including OP, customer, PO, and part number.
+      tags:
+      - Inventory
+      parameters:
+      - name: customerId
+        in: query
+        required: false
+        description: Filter by customer ID.
+        schema:
+          type: string
+        example: CUST-001234
+      - name: product
+        in: query
+        required: false
+        description: Filter by product type.
+        schema:
+          type: string
+        example: Cold-Rolled Coil
+      - name: grade
+        in: query
+        required: false
+        description: Filter by steel grade.
+        schema:
+          type: string
+        example: IF
+      - name: facility
+        in: query
+        required: false
+        description: Filter by production facility.
+        schema:
+          type: string
+      - name: limit
+        in: query
+        required: false
+        description: Maximum number of results to return.
+        schema:
+          type: integer
+        example: 100
+      - name: offset
+        in: query
+        required: false
+        description: Pagination offset.
+        schema:
+          type: integer
+        example: 0
+      responses:
+        '200':
+          description: Inventory list returned successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InventoryList'
+              examples:
+                ListInventory200Example:
+                  summary: Default listInventory 200 response
+                  x-microcks-default: true
+                  value:
+                    total: 1
+                    items:
+                    - itemId: INV-CR-001234
+                      customerId: CUST-001234
+                      orderId: ORD-2025-001234
+                      product: Cold-Rolled Coil
+                      grade: IF
+                      coilId: COIL-8765432
+                      weight: 28.5
+                      weightUnit: tons
+                      location: Gary Works
+                      status: AVAILABLE
+        '401':
+          description: Unauthorized.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    InventoryList:
+      type: object
+      description: Paginated list of inventory items.
+      properties:
+        total:
+          type: integer
+          description: Total number of inventory items.
+          example: 15
+        items:
+          type: array
+          description: List of inventory items.
+          items:
+            $ref: '#/components/schemas/InventoryItem'
+    Error:
+      type: object
+      description: API error response.
+      properties:
+        code:
+          type: string
+          description: Error code.
+          example: INVALID_REQUEST
+        message:
+          type: string
+          description: Human-readable error message.
+          example: Invalid order ID format
+        details:
+          type: string
+          description: Additional error details.
+    InventoryItem:
+      type: object
+      description: An inventory item available to the customer.
+      properties:
+        itemId:
+          type: string
+          description: Unique inventory item identifier.
+          example: INV-CR-001234
+        customerId:
+          type: string
+          description: Customer account identifier.
+          example: CUST-001234
+        orderId:
+          type: string
+          description: Associated order identifier.
+          example: ORD-2025-001234
+        product:
+          type: string
+          description: Steel product type.
+          example: Cold-Rolled Coil
+        grade:
+          type: string
+          description: Steel grade designation.
+          example: IF
+        coilId:
+          type: string
+          description: Individual coil identifier.
+          example: COIL-8765432
+        weight:
+          type: number
+          description: Item weight.
+          example: 28.5
+        weightUnit:
+          type: string
+          description: Weight unit.
+          example: tons
+        location:
+          type: string
+          description: Storage or production facility location.
+          example: Gary Works
+        status:
+          type: string
+          description: Inventory item availability status.
+          enum:
+          - AVAILABLE
+          - RESERVED
+          - IN_TRANSIT
+          - ON_HOLD
+          example: AVAILABLE
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer token authentication for SteelTrack API.
+externalDocs:
+  description: U.S. Steel Customer Solutions
+  url: https://www.ussteel.com/about-us/doing-business-with-u.-s.-steel
