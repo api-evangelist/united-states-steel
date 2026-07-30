@@ -1,4 +1,18 @@
 aid: united-states-steel
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/united-states-steel.png
 name: United States Steel
 url: https://raw.githubusercontent.com/api-evangelist/united-states-steel/refs/heads/main/apis.yml
 description: >-
@@ -18,39 +32,94 @@ tags:
   - Supply Chain
   - Fortune 500
 apis:
-  - name: U.S. Steel SteelTrack API
-    description: >-
-      SteelTrack is U.S. Steel's internet-based customer platform providing order status reporting, inventory tracking,
-      shipment history, material release, and physical and chemical test reporting. The API enables ERP and supply chain
-      integration for steel order management and quality documentation.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://www.ussteel.com/about-us/doing-business-with-u.-s.-steel
-    baseURL: https://steeltrack.ussteel.com/api
-    tags:
-      - Steel
-      - Supply Chain
-      - Order Management
-      - Manufacturing
-    properties:
-      - type: Documentation
-        url: https://www.ussteel.com/about-us/doing-business-with-u.-s.-steel
-      - type: OpenAPI
-        url: openapi/united-states-steel-steeltrack-openapi.yml
-      - type: JSONSchema
-        url: json-schema/steeltrack-order-schema.json
-        title: Order Schema
-      - type: JSONSchema
-        url: json-schema/steeltrack-shipment-schema.json
-        title: Shipment Schema
-      - type: JSONStructure
-        url: json-structure/steeltrack-order-structure.json
-        title: Order Structure
-      - type: JSONLD
-        url: json-ld/united-states-steel-steeltrack-context.jsonld
-      - type: Examples
-        url: examples/steeltrack-order-example.json
-        title: Order Example
-    aid: united-states-steel:steeltrack-api
+- aid: united-states-steel:united-states-steel-inventory-api
+  name: United States Steel Inventory API
+  description: Inventory tracking and management operations
+  humanURL: https://www.ussteel.com/about-us/doing-business-with-u.-s.-steel
+  baseURL: https://steeltrack.ussteel.com/api
+  tags:
+  - Inventory
+  properties:
+  - type: OpenAPI
+    url: openapi/united-states-steel-inventory-api-openapi.yml
+  - type: Documentation
+    url: https://www.ussteel.com/about-us/doing-business-with-u.-s.-steel
+  - type: JSONSchema
+    url: json-schema/steeltrack-order-schema.json
+  - type: JSONSchema
+    url: json-schema/steeltrack-shipment-schema.json
+  - type: JSONStructure
+    url: json-structure/steeltrack-order-structure.json
+  - type: JSONLD
+    url: json-ld/united-states-steel-steeltrack-context.jsonld
+  - type: Examples
+    url: examples/steeltrack-order-example.json
+- aid: united-states-steel:united-states-steel-orders-api
+  name: United States Steel Orders API
+  description: Order status and summary reporting operations
+  humanURL: https://www.ussteel.com/about-us/doing-business-with-u.-s.-steel
+  baseURL: https://steeltrack.ussteel.com/api
+  tags:
+  - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/united-states-steel-orders-api-openapi.yml
+  - type: Documentation
+    url: https://www.ussteel.com/about-us/doing-business-with-u.-s.-steel
+  - type: JSONSchema
+    url: json-schema/steeltrack-order-schema.json
+  - type: JSONSchema
+    url: json-schema/steeltrack-shipment-schema.json
+  - type: JSONStructure
+    url: json-structure/steeltrack-order-structure.json
+  - type: JSONLD
+    url: json-ld/united-states-steel-steeltrack-context.jsonld
+  - type: Examples
+    url: examples/steeltrack-order-example.json
+- aid: united-states-steel:united-states-steel-shipments-api
+  name: United States Steel Shipments API
+  description: Shipment history and tracking operations
+  humanURL: https://www.ussteel.com/about-us/doing-business-with-u.-s.-steel
+  baseURL: https://steeltrack.ussteel.com/api
+  tags:
+  - Shipments
+  properties:
+  - type: OpenAPI
+    url: openapi/united-states-steel-shipments-api-openapi.yml
+  - type: Documentation
+    url: https://www.ussteel.com/about-us/doing-business-with-u.-s.-steel
+  - type: JSONSchema
+    url: json-schema/steeltrack-order-schema.json
+  - type: JSONSchema
+    url: json-schema/steeltrack-shipment-schema.json
+  - type: JSONStructure
+    url: json-structure/steeltrack-order-structure.json
+  - type: JSONLD
+    url: json-ld/united-states-steel-steeltrack-context.jsonld
+  - type: Examples
+    url: examples/steeltrack-order-example.json
+- aid: united-states-steel:united-states-steel-test-reports-api
+  name: United States Steel Test Reports API
+  description: Physical, mechanical, and chemical test report operations
+  humanURL: https://www.ussteel.com/about-us/doing-business-with-u.-s.-steel
+  baseURL: https://steeltrack.ussteel.com/api
+  tags:
+  - Test Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/united-states-steel-test-reports-api-openapi.yml
+  - type: Documentation
+    url: https://www.ussteel.com/about-us/doing-business-with-u.-s.-steel
+  - type: JSONSchema
+    url: json-schema/steeltrack-order-schema.json
+  - type: JSONSchema
+    url: json-schema/steeltrack-shipment-schema.json
+  - type: JSONStructure
+    url: json-structure/steeltrack-order-structure.json
+  - type: JSONLD
+    url: json-ld/united-states-steel-steeltrack-context.jsonld
+  - type: Examples
+    url: examples/steeltrack-order-example.json
 common:
   - type: AgenticAccess
     url: agentic-access/united-states-steel-agentic-access.yml
