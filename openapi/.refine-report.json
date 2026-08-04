@@ -1,0 +1,20 @@
+{
+  "provider": "united-states-steel",
+  "sources": [
+    "united-states-steel-inventory-api-openapi.yml",
+    "united-states-steel-orders-api-openapi.yml",
+    "united-states-steel-shipments-api-openapi.yml",
+    "united-states-steel-test-reports-api-openapi.yml"
+  ],
+  "outputs": [
+    "united-states-steel-inventory-api-openapi.yml",
+    "united-states-steel-orders-api-openapi.yml",
+    "united-states-steel-shipments-api-openapi.yml",
+    "united-states-steel-test-reports-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
