@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "U.S. Steel SteelTrack Inventory API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Inventory",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "U.S. Steel SteelTrack List Inventory",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://steeltrack.ussteel.com/api/inventory",
+            "params": [
+              {
+                "name": "customerId",
+                "value": "CUST-001234",
+                "type": "query",
+                "description": "Filter by customer ID."
+              },
+              {
+                "name": "product",
+                "value": "Cold-Rolled Coil",
+                "type": "query",
+                "description": "Filter by product type."
+              },
+              {
+                "name": "grade",
+                "value": "IF",
+                "type": "query",
+                "description": "Filter by steel grade."
+              },
+              {
+                "name": "facility",
+                "value": "",
+                "type": "query",
+                "description": "Filter by production facility."
+              },
+              {
+                "name": "limit",
+                "value": "100",
+                "type": "query",
+                "description": "Maximum number of results to return."
+              },
+              {
+                "name": "offset",
+                "value": "0",
+                "type": "query",
+                "description": "Pagination offset."
+              }
+            ]
+          },
+          "docs": "Returns on-hand inventory available for the customer, filterable by product, grade, and facility. Supports sorting by multiple fields including OP, customer, PO, and part number."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

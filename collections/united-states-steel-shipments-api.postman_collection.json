@@ -1,0 +1,249 @@
+{
+  "item": [
+    {
+      "id": "23fa3fd5-73ed-4a6f-81ea-84425a510d95",
+      "name": "Shipments",
+      "description": {
+        "content": "Shipment history and tracking operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0021b0b2-a2b6-4ad2-a308-e68f2cac4da0",
+          "name": "U.S. Steel SteelTrack List Shipments",
+          "request": {
+            "name": "U.S. Steel SteelTrack List Shipments",
+            "description": {
+              "content": "Returns shipment history searchable by order item, part number, and purchase order, with optional coil-level detail.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "shipments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "orderId",
+                  "value": "<string>",
+                  "description": "Filter by order ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "purchaseOrder",
+                  "value": "<string>",
+                  "description": "Filter by purchase order number."
+                },
+                {
+                  "disabled": false,
+                  "key": "fromDate",
+                  "value": "<date>",
+                  "description": "Start date for shipment date range."
+                },
+                {
+                  "disabled": false,
+                  "key": "toDate",
+                  "value": "<date>",
+                  "description": "End date for shipment date range."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeCoilDetail",
+                  "value": "<boolean>",
+                  "description": "Whether to include coil-level detail in the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53845060-bc96-429e-a39a-bcc4b1bf2c3f",
+              "name": "Shipments returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shipments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "orderId",
+                      "value": "ORD-2025-001234"
+                    },
+                    {
+                      "key": "purchaseOrder",
+                      "value": "PO-2025-5678"
+                    },
+                    {
+                      "key": "fromDate",
+                      "value": "2025-01-01"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "2025-03-31"
+                    },
+                    {
+                      "key": "includeCoilDetail",
+                      "value": "false"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 1,\n  \"shipments\": [\n    {\n      \"shipmentId\": \"SHIP-2025-9876\",\n      \"orderId\": \"ORD-2025-001234\",\n      \"purchaseOrder\": \"PO-2025-5678\",\n      \"shipDate\": \"2025-02-14\",\n      \"carrier\": \"Rail\",\n      \"destination\": \"Detroit, MI\",\n      \"weight\": 50,\n      \"weightUnit\": \"tons\",\n      \"status\": \"DELIVERED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ad7a8628-7897-4c79-8bb7-64d576fff439",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "shipments"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "orderId",
+                      "value": "ORD-2025-001234"
+                    },
+                    {
+                      "key": "purchaseOrder",
+                      "value": "PO-2025-5678"
+                    },
+                    {
+                      "key": "fromDate",
+                      "value": "2025-01-01"
+                    },
+                    {
+                      "key": "toDate",
+                      "value": "2025-03-31"
+                    },
+                    {
+                      "key": "includeCoilDetail",
+                      "value": "false"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"INVALID_REQUEST\",\n  \"message\": \"Invalid order ID format\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://steeltrack.ussteel.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "59e81be5-5775-4fa2-b8a9-8dfd20256bfa",
+    "name": "U.S. Steel SteelTrack Inventory Shipments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The U.S. Steel SteelTrack platform provides internet-based customer applications for order management, inventory tracking, shipment history, material release, and test reporting. This API exposes the core SteelTrack capabilities for integration with customer ERP, supply chain, and procurement systems.\n\nContact Support:\n Name: U.S. Steel Customer Service",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,207 @@
+{
+  "item": [
+    {
+      "id": "b6bbc812-48e7-428c-b5c1-2cddb2854046",
+      "name": "Test Reports",
+      "description": {
+        "content": "Physical, mechanical, and chemical test report operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2a747c51-3fa4-42c4-83a9-7475cba46626",
+          "name": "U.S. Steel SteelTrack List Test Reports",
+          "request": {
+            "name": "U.S. Steel SteelTrack List Test Reports",
+            "description": {
+              "content": "Returns physical, mechanical, and chemical test reports for steel products. Includes certified test reports with electronic signatures.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "test-reports"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "coilId",
+                  "value": "<string>",
+                  "description": "Filter by coil ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderId",
+                  "value": "<string>",
+                  "description": "Filter by order ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "reportType",
+                  "value": "<string>",
+                  "description": "Filter by test report type."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "31003c30-fef4-4bd1-969a-56348916c2a0",
+              "name": "Test reports returned successfully.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "test-reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "coilId",
+                      "value": "COIL-8765432"
+                    },
+                    {
+                      "key": "orderId",
+                      "value": "ORD-2025-001234"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "ALL"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"total\": 1,\n  \"reports\": [\n    {\n      \"reportId\": \"RPT-2025-4321\",\n      \"coilId\": \"COIL-8765432\",\n      \"orderId\": \"ORD-2025-001234\",\n      \"product\": \"Cold-Rolled Coil\",\n      \"grade\": \"IF\",\n      \"reportType\": \"MECHANICAL\",\n      \"certified\": true,\n      \"reportDate\": \"2025-02-10\",\n      \"yieldStrength\": 34,\n      \"tensileStrength\": 47,\n      \"elongation\": 44\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "79e1c991-15aa-408c-8b4d-49ff2d874b9d",
+              "name": "Unauthorized.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "test-reports"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "coilId",
+                      "value": "COIL-8765432"
+                    },
+                    {
+                      "key": "orderId",
+                      "value": "ORD-2025-001234"
+                    },
+                    {
+                      "key": "reportType",
+                      "value": "ALL"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"INVALID_REQUEST\",\n  \"message\": \"Invalid order ID format\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://steeltrack.ussteel.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f523cd94-e659-4151-99fa-b0cbe46291a6",
+    "name": "U.S. Steel SteelTrack Inventory Test Reports API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The U.S. Steel SteelTrack platform provides internet-based customer applications for order management, inventory tracking, shipment history, material release, and test reporting. This API exposes the core SteelTrack capabilities for integration with customer ERP, supply chain, and procurement systems.\n\nContact Support:\n Name: U.S. Steel Customer Service",
+      "type": "text/plain"
+    }
+  }
+}

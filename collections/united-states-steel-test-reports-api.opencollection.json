@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "U.S. Steel SteelTrack Inventory Test Reports API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Test Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "U.S. Steel SteelTrack List Test Reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://steeltrack.ussteel.com/api/test-reports",
+            "params": [
+              {
+                "name": "coilId",
+                "value": "COIL-8765432",
+                "type": "query",
+                "description": "Filter by coil ID."
+              },
+              {
+                "name": "orderId",
+                "value": "ORD-2025-001234",
+                "type": "query",
+                "description": "Filter by order ID."
+              },
+              {
+                "name": "reportType",
+                "value": "ALL",
+                "type": "query",
+                "description": "Filter by test report type."
+              }
+            ]
+          },
+          "docs": "Returns physical, mechanical, and chemical test reports for steel products. Includes certified test reports with electronic signatures."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
