@@ -61,6 +61,8 @@ apis:
   humanURL: https://www.ussteel.com/about-us/doing-business-with-u.-s.-steel
   baseURL: https://steeltrack.ussteel.com/api
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
