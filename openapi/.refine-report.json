@@ -15,6 +15,12 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "united-states-steel-inventory-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "united-states-steel-orders-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "united-states-steel-shipments-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "united-states-steel-test-reports-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }
