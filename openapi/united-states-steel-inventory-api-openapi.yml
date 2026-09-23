@@ -100,19 +100,21 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    InventoryList:
+    Error:
       type: object
-      description: Paginated list of inventory items.
+      description: API error response.
       properties:
-        total:
-          type: integer
-          description: Total number of inventory items.
-          example: 15
-        items:
-          type: array
-          description: List of inventory items.
-          items:
-            $ref: '#/components/schemas/InventoryItem'
+        code:
+          type: string
+          description: Error code.
+          example: INVALID_REQUEST
+        message:
+          type: string
+          description: Human-readable error message.
+          example: Invalid order ID format
+        details:
+          type: string
+          description: Additional error details.
     InventoryItem:
       type: object
       description: An inventory item available to the customer.
@@ -162,21 +164,19 @@ components:
           - IN_TRANSIT
           - ON_HOLD
           example: AVAILABLE
-    Error:
+    InventoryList:
       type: object
-      description: API error response.
+      description: Paginated list of inventory items.
       properties:
-        code:
-          type: string
-          description: Error code.
-          example: INVALID_REQUEST
-        message:
-          type: string
-          description: Human-readable error message.
-          example: Invalid order ID format
-        details:
-          type: string
-          description: Additional error details.
+        total:
+          type: integer
+          description: Total number of inventory items.
+          example: 15
+        items:
+          type: array
+          description: List of inventory items.
+          items:
+            $ref: '#/components/schemas/InventoryItem'
   securitySchemes:
     bearerAuth:
       type: http

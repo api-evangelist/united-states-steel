@@ -1,7 +1,9 @@
 ---
 title: Press Releases
 url: https://www.googlecloudpresscorner.com/press-releases?o=420
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"United States Steel" press release artificial intelligence'
 position: 5
 source: serpapi-google

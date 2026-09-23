@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: U.S. Steel SteelTrack Inventory Shipments API
+  title: U.S. Steel SteelTrack Shipments API
   description: The U.S. Steel SteelTrack platform provides internet-based customer applications for order management, inventory tracking, shipment history, material release, and test reporting. This API exposes the core SteelTrack capabilities for integration with customer ERP, supply chain, and procurement systems.
   version: '1.0'
   contact:

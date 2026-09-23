@@ -1,10 +1,7 @@
 {
   "provider": "united-states-steel",
   "sources": [
-    "united-states-steel-inventory-api-openapi.yml",
-    "united-states-steel-orders-api-openapi.yml",
-    "united-states-steel-shipments-api-openapi.yml",
-    "united-states-steel-test-reports-api-openapi.yml"
+    "_ae-authored/united-states-steel-steeltrack-openapi.yml"
   ],
   "outputs": [
     "united-states-steel-inventory-api-openapi.yml",
@@ -16,11 +13,14 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "united-states-steel-inventory-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "united-states-steel-orders-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "united-states-steel-shipments-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "united-states-steel-test-reports-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "united-states-steel-steeltrack-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "united-states-steel-inventory-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "united-states-steel-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "united-states-steel-shipments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "united-states-steel-test-reports-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

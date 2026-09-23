@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: U.S. Steel SteelTrack Inventory Orders API
+  title: U.S. Steel SteelTrack Orders API
   description: The U.S. Steel SteelTrack platform provides internet-based customer applications for order management, inventory tracking, shipment history, material release, and test reporting. This API exposes the core SteelTrack capabilities for integration with customer ERP, supply chain, and procurement systems.
   version: '1.0'
   contact:
@@ -179,34 +179,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Error:
-      type: object
-      description: API error response.
-      properties:
-        code:
-          type: string
-          description: Error code.
-          example: INVALID_REQUEST
-        message:
-          type: string
-          description: Human-readable error message.
-          example: Invalid order ID format
-        details:
-          type: string
-          description: Additional error details.
-    OrderList:
-      type: object
-      description: Paginated list of orders.
-      properties:
-        total:
-          type: integer
-          description: Total number of matching orders.
-          example: 25
-        orders:
-          type: array
-          description: List of order records.
-          items:
-            $ref: '#/components/schemas/Order'
     Order:
       type: object
       description: A U.S. Steel customer order.
@@ -268,6 +240,34 @@ components:
           format: date
           description: Estimated delivery date from US Steel.
           example: '2025-02-28'
+    Error:
+      type: object
+      description: API error response.
+      properties:
+        code:
+          type: string
+          description: Error code.
+          example: INVALID_REQUEST
+        message:
+          type: string
+          description: Human-readable error message.
+          example: Invalid order ID format
+        details:
+          type: string
+          description: Additional error details.
+    OrderList:
+      type: object
+      description: Paginated list of orders.
+      properties:
+        total:
+          type: integer
+          description: Total number of matching orders.
+          example: 25
+        orders:
+          type: array
+          description: List of order records.
+          items:
+            $ref: '#/components/schemas/Order'
   securitySchemes:
     bearerAuth:
       type: http
