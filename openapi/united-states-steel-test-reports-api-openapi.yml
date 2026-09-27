@@ -86,6 +86,19 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    TestReportList:
+      type: object
+      description: Paginated list of test reports.
+      properties:
+        total:
+          type: integer
+          description: Total number of matching test reports.
+          example: 5
+        reports:
+          type: array
+          description: List of test report records.
+          items:
+            $ref: '#/components/schemas/TestReport'
     Error:
       type: object
       description: API error response.
@@ -101,19 +114,6 @@ components:
         details:
           type: string
           description: Additional error details.
-    TestReportList:
-      type: object
-      description: Paginated list of test reports.
-      properties:
-        total:
-          type: integer
-          description: Total number of matching test reports.
-          example: 5
-        reports:
-          type: array
-          description: List of test report records.
-          items:
-            $ref: '#/components/schemas/TestReport'
     TestReport:
       type: object
       description: A physical, mechanical, or chemical test report for a steel product.

@@ -100,21 +100,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Error:
-      type: object
-      description: API error response.
-      properties:
-        code:
-          type: string
-          description: Error code.
-          example: INVALID_REQUEST
-        message:
-          type: string
-          description: Human-readable error message.
-          example: Invalid order ID format
-        details:
-          type: string
-          description: Additional error details.
     InventoryItem:
       type: object
       description: An inventory item available to the customer.
@@ -164,6 +149,21 @@ components:
           - IN_TRANSIT
           - ON_HOLD
           example: AVAILABLE
+    Error:
+      type: object
+      description: API error response.
+      properties:
+        code:
+          type: string
+          description: Error code.
+          example: INVALID_REQUEST
+        message:
+          type: string
+          description: Human-readable error message.
+          example: Invalid order ID format
+        details:
+          type: string
+          description: Additional error details.
     InventoryList:
       type: object
       description: Paginated list of inventory items.

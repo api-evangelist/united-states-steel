@@ -117,19 +117,6 @@ components:
         details:
           type: string
           description: Additional error details.
-    ShipmentList:
-      type: object
-      description: Paginated list of shipments.
-      properties:
-        total:
-          type: integer
-          description: Total number of matching shipments.
-          example: 10
-        shipments:
-          type: array
-          description: List of shipment records.
-          items:
-            $ref: '#/components/schemas/Shipment'
     Shipment:
       type: object
       description: A shipment record for a steel order.
@@ -181,6 +168,19 @@ components:
           - DELIVERED
           - EXCEPTION
           example: DELIVERED
+    ShipmentList:
+      type: object
+      description: Paginated list of shipments.
+      properties:
+        total:
+          type: integer
+          description: Total number of matching shipments.
+          example: 10
+        shipments:
+          type: array
+          description: List of shipment records.
+          items:
+            $ref: '#/components/schemas/Shipment'
   securitySchemes:
     bearerAuth:
       type: http
