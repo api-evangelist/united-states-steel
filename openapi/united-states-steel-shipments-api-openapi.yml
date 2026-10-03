@@ -102,21 +102,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Error:
-      type: object
-      description: API error response.
-      properties:
-        code:
-          type: string
-          description: Error code.
-          example: INVALID_REQUEST
-        message:
-          type: string
-          description: Human-readable error message.
-          example: Invalid order ID format
-        details:
-          type: string
-          description: Additional error details.
     Shipment:
       type: object
       description: A shipment record for a steel order.
@@ -181,6 +166,21 @@ components:
           description: List of shipment records.
           items:
             $ref: '#/components/schemas/Shipment'
+    Error:
+      type: object
+      description: API error response.
+      properties:
+        code:
+          type: string
+          description: Error code.
+          example: INVALID_REQUEST
+        message:
+          type: string
+          description: Human-readable error message.
+          example: Invalid order ID format
+        details:
+          type: string
+          description: Additional error details.
   securitySchemes:
     bearerAuth:
       type: http

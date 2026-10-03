@@ -179,6 +179,34 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    OrderList:
+      type: object
+      description: Paginated list of orders.
+      properties:
+        total:
+          type: integer
+          description: Total number of matching orders.
+          example: 25
+        orders:
+          type: array
+          description: List of order records.
+          items:
+            $ref: '#/components/schemas/Order'
+    Error:
+      type: object
+      description: API error response.
+      properties:
+        code:
+          type: string
+          description: Error code.
+          example: INVALID_REQUEST
+        message:
+          type: string
+          description: Human-readable error message.
+          example: Invalid order ID format
+        details:
+          type: string
+          description: Additional error details.
     Order:
       type: object
       description: A U.S. Steel customer order.
@@ -240,34 +268,6 @@ components:
           format: date
           description: Estimated delivery date from US Steel.
           example: '2025-02-28'
-    Error:
-      type: object
-      description: API error response.
-      properties:
-        code:
-          type: string
-          description: Error code.
-          example: INVALID_REQUEST
-        message:
-          type: string
-          description: Human-readable error message.
-          example: Invalid order ID format
-        details:
-          type: string
-          description: Additional error details.
-    OrderList:
-      type: object
-      description: Paginated list of orders.
-      properties:
-        total:
-          type: integer
-          description: Total number of matching orders.
-          example: 25
-        orders:
-          type: array
-          description: List of order records.
-          items:
-            $ref: '#/components/schemas/Order'
   securitySchemes:
     bearerAuth:
       type: http

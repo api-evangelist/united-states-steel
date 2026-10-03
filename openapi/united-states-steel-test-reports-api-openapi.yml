@@ -86,34 +86,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    TestReportList:
-      type: object
-      description: Paginated list of test reports.
-      properties:
-        total:
-          type: integer
-          description: Total number of matching test reports.
-          example: 5
-        reports:
-          type: array
-          description: List of test report records.
-          items:
-            $ref: '#/components/schemas/TestReport'
-    Error:
-      type: object
-      description: API error response.
-      properties:
-        code:
-          type: string
-          description: Error code.
-          example: INVALID_REQUEST
-        message:
-          type: string
-          description: Human-readable error message.
-          example: Invalid order ID format
-        details:
-          type: string
-          description: Additional error details.
     TestReport:
       type: object
       description: A physical, mechanical, or chemical test report for a steel product.
@@ -167,6 +139,34 @@ components:
           type: number
           description: Elongation percentage.
           example: 44
+    TestReportList:
+      type: object
+      description: Paginated list of test reports.
+      properties:
+        total:
+          type: integer
+          description: Total number of matching test reports.
+          example: 5
+        reports:
+          type: array
+          description: List of test report records.
+          items:
+            $ref: '#/components/schemas/TestReport'
+    Error:
+      type: object
+      description: API error response.
+      properties:
+        code:
+          type: string
+          description: Error code.
+          example: INVALID_REQUEST
+        message:
+          type: string
+          description: Human-readable error message.
+          example: Invalid order ID format
+        details:
+          type: string
+          description: Additional error details.
   securitySchemes:
     bearerAuth:
       type: http
