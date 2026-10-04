@@ -100,6 +100,19 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    InventoryList:
+      type: object
+      description: Paginated list of inventory items.
+      properties:
+        total:
+          type: integer
+          description: Total number of inventory items.
+          example: 15
+        items:
+          type: array
+          description: List of inventory items.
+          items:
+            $ref: '#/components/schemas/InventoryItem'
     InventoryItem:
       type: object
       description: An inventory item available to the customer.
@@ -149,19 +162,6 @@ components:
           - IN_TRANSIT
           - ON_HOLD
           example: AVAILABLE
-    InventoryList:
-      type: object
-      description: Paginated list of inventory items.
-      properties:
-        total:
-          type: integer
-          description: Total number of inventory items.
-          example: 15
-        items:
-          type: array
-          description: List of inventory items.
-          items:
-            $ref: '#/components/schemas/InventoryItem'
     Error:
       type: object
       description: API error response.
