@@ -179,19 +179,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    OrderList:
-      type: object
-      description: Paginated list of orders.
-      properties:
-        total:
-          type: integer
-          description: Total number of matching orders.
-          example: 25
-        orders:
-          type: array
-          description: List of order records.
-          items:
-            $ref: '#/components/schemas/Order'
     Order:
       type: object
       description: A U.S. Steel customer order.
@@ -253,6 +240,19 @@ components:
           format: date
           description: Estimated delivery date from US Steel.
           example: '2025-02-28'
+    OrderList:
+      type: object
+      description: Paginated list of orders.
+      properties:
+        total:
+          type: integer
+          description: Total number of matching orders.
+          example: 25
+        orders:
+          type: array
+          description: List of order records.
+          items:
+            $ref: '#/components/schemas/Order'
     Error:
       type: object
       description: API error response.
