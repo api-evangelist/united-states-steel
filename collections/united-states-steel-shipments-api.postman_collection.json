@@ -1,231 +1,234 @@
 {
+  "info": {
+    "_postman_id": "e75df08d-7a34-4989-999d-a341d6bd1850",
+    "name": "U.S. Steel SteelTrack Shipments API",
+    "description": "The U.S. Steel SteelTrack platform provides internet-based customer applications for order management, inventory tracking, shipment history, material release, and test reporting. This API exposes the core SteelTrack capabilities for integration with customer ERP, supply chain, and procurement systems.\n\nContact Support:\n Name: U.S. Steel Customer Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T21:06:30.000Z",
+    "updatedAt": "2026-10-21T21:06:30.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e75df08d-7a34-4989-999d-a341d6bd1850"
+  },
   "item": [
     {
-      "id": "23fa3fd5-73ed-4a6f-81ea-84425a510d95",
-      "name": "Shipments",
-      "description": {
-        "content": "Shipment history and tracking operations",
-        "type": "text/plain"
-      },
+      "name": "shipments",
       "item": [
         {
-          "id": "0021b0b2-a2b6-4ad2-a308-e68f2cac4da0",
           "name": "U.S. Steel SteelTrack List Shipments",
+          "id": "ee90f2c6-df80-4a0c-bfa5-9ff10492e1ad",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "U.S. Steel SteelTrack List Shipments",
-            "description": {
-              "content": "Returns shipment history searchable by order item, part number, and purchase order, with optional coil-level detail.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "shipments"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "orderId",
-                  "value": "<string>",
-                  "description": "Filter by order ID."
-                },
-                {
-                  "disabled": false,
-                  "key": "purchaseOrder",
-                  "value": "<string>",
-                  "description": "Filter by purchase order number."
-                },
-                {
-                  "disabled": false,
-                  "key": "fromDate",
-                  "value": "<date>",
-                  "description": "Start date for shipment date range."
-                },
-                {
-                  "disabled": false,
-                  "key": "toDate",
-                  "value": "<date>",
-                  "description": "End date for shipment date range."
-                },
-                {
-                  "disabled": false,
-                  "key": "includeCoilDetail",
-                  "value": "<boolean>",
-                  "description": "Whether to include coil-level detail in the response."
-                },
-                {
-                  "disabled": false,
-                  "key": "limit",
-                  "value": "<integer>",
-                  "description": "Maximum number of results to return."
-                }
-              ],
-              "variable": []
-            },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/shipments?orderId=<string>&purchaseOrder=<string>&fromDate=<date>&toDate=<date>&includeCoilDetail=<boolean>&limit=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "shipments"
+              ],
+              "query": [
+                {
+                  "description": "Filter by order ID.",
+                  "key": "orderId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by purchase order number.",
+                  "key": "purchaseOrder",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Start date for shipment date range.",
+                  "key": "fromDate",
+                  "value": "<date>"
+                },
+                {
+                  "description": "End date for shipment date range.",
+                  "key": "toDate",
+                  "value": "<date>"
+                },
+                {
+                  "description": "Whether to include coil-level detail in the response.",
+                  "key": "includeCoilDetail",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Maximum number of results to return.",
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Returns shipment history searchable by order item, part number, and purchase order, with optional coil-level detail."
           },
           "response": [
             {
-              "id": "53845060-bc96-429e-a39a-bcc4b1bf2c3f",
+              "id": "7efaec53-5fdc-469e-b256-afda00cd33f8",
               "name": "Shipments returned successfully.",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "shipments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "orderId",
-                      "value": "ORD-2025-001234"
-                    },
-                    {
-                      "key": "purchaseOrder",
-                      "value": "PO-2025-5678"
-                    },
-                    {
-                      "key": "fromDate",
-                      "value": "2025-01-01"
-                    },
-                    {
-                      "key": "toDate",
-                      "value": "2025-03-31"
-                    },
-                    {
-                      "key": "includeCoilDetail",
-                      "value": "false"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "50"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/shipments?orderId=<string>&purchaseOrder=<string>&fromDate=<date>&toDate=<date>&includeCoilDetail=<boolean>&limit=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "shipments"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by order ID.",
+                      "key": "orderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by purchase order number.",
+                      "key": "purchaseOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Start date for shipment date range.",
+                      "key": "fromDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for shipment date range.",
+                      "key": "toDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Whether to include coil-level detail in the response.",
+                      "key": "includeCoilDetail",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Maximum number of results to return.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"total\": 1,\n  \"shipments\": [\n    {\n      \"shipmentId\": \"SHIP-2025-9876\",\n      \"orderId\": \"ORD-2025-001234\",\n      \"purchaseOrder\": \"PO-2025-5678\",\n      \"shipDate\": \"2025-02-14\",\n      \"carrier\": \"Rail\",\n      \"destination\": \"Detroit, MI\",\n      \"weight\": 50,\n      \"weightUnit\": \"tons\",\n      \"status\": \"DELIVERED\"\n    }\n  ]\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"shipments\": [\n    {\n      \"shipmentId\": \"<string>\",\n      \"orderId\": \"<string>\",\n      \"purchaseOrder\": \"<string>\",\n      \"shipDate\": \"<date>\",\n      \"carrier\": \"Barge\",\n      \"destination\": \"<string>\",\n      \"weight\": \"<number>\",\n      \"weightUnit\": \"<string>\",\n      \"status\": \"EXCEPTION\"\n    },\n    {\n      \"shipmentId\": \"<string>\",\n      \"orderId\": \"<string>\",\n      \"purchaseOrder\": \"<string>\",\n      \"shipDate\": \"<date>\",\n      \"carrier\": \"Barge\",\n      \"destination\": \"<string>\",\n      \"weight\": \"<number>\",\n      \"weightUnit\": \"<string>\",\n      \"status\": \"DELIVERED\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-21T21:06:31.000Z",
+              "updatedAt": "2026-10-21T21:06:31.000Z",
+              "uid": "35240-7efaec53-5fdc-469e-b256-afda00cd33f8"
             },
             {
-              "id": "ad7a8628-7897-4c79-8bb7-64d576fff439",
+              "id": "19e08841-b54d-4e48-8940-52708ca7f94e",
               "name": "Unauthorized.",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "shipments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "orderId",
-                      "value": "ORD-2025-001234"
-                    },
-                    {
-                      "key": "purchaseOrder",
-                      "value": "PO-2025-5678"
-                    },
-                    {
-                      "key": "fromDate",
-                      "value": "2025-01-01"
-                    },
-                    {
-                      "key": "toDate",
-                      "value": "2025-03-31"
-                    },
-                    {
-                      "key": "includeCoilDetail",
-                      "value": "false"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "50"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/shipments?orderId=<string>&purchaseOrder=<string>&fromDate=<date>&toDate=<date>&includeCoilDetail=<boolean>&limit=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "shipments"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by order ID.",
+                      "key": "orderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by purchase order number.",
+                      "key": "purchaseOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Start date for shipment date range.",
+                      "key": "fromDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for shipment date range.",
+                      "key": "toDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Whether to include coil-level detail in the response.",
+                      "key": "includeCoilDetail",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Maximum number of results to return.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"code\": \"INVALID_REQUEST\",\n  \"message\": \"Invalid order ID format\",\n  \"details\": \"string\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": \"<string>\"\n}",
+              "createdAt": "2026-10-21T21:06:31.000Z",
+              "updatedAt": "2026-10-21T21:06:31.000Z",
+              "uid": "35240-19e08841-b54d-4e48-8940-52708ca7f94e"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-21T21:06:31.000Z",
+          "updatedAt": "2026-10-21T21:06:31.000Z",
+          "uid": "35240-ee90f2c6-df80-4a0c-bfa5-9ff10492e1ad"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://steeltrack.ussteel.com/api",
-      "key": "baseUrl"
+      "id": "93ea8505-887d-4490-9681-b30ee7c47366",
+      "createdAt": "2026-10-21T21:06:31.000Z",
+      "updatedAt": "2026-10-21T21:06:31.000Z",
+      "uid": "35240-93ea8505-887d-4490-9681-b30ee7c47366"
     }
   ],
   "auth": {
@@ -233,17 +236,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "59e81be5-5775-4fa2-b8a9-8dfd20256bfa",
-    "name": "U.S. Steel SteelTrack Inventory Shipments API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The U.S. Steel SteelTrack platform provides internet-based customer applications for order management, inventory tracking, shipment history, material release, and test reporting. This API exposes the core SteelTrack capabilities for integration with customer ERP, supply chain, and procurement systems.\n\nContact Support:\n Name: U.S. Steel Customer Service",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://steeltrack.ussteel.com/api"
     }
-  }
+  ]
 }

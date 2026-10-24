@@ -1,189 +1,189 @@
 {
+  "info": {
+    "_postman_id": "006687e4-51fa-4344-8f49-56637d02689e",
+    "name": "U.S. Steel SteelTrack Test Reports API",
+    "description": "The U.S. Steel SteelTrack platform provides internet-based customer applications for order management, inventory tracking, shipment history, material release, and test reporting. This API exposes the core SteelTrack capabilities for integration with customer ERP, supply chain, and procurement systems.\n\nContact Support:\n Name: U.S. Steel Customer Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T21:06:37.000Z",
+    "updatedAt": "2026-10-21T21:06:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-006687e4-51fa-4344-8f49-56637d02689e"
+  },
   "item": [
     {
-      "id": "b6bbc812-48e7-428c-b5c1-2cddb2854046",
-      "name": "Test Reports",
-      "description": {
-        "content": "Physical, mechanical, and chemical test report operations",
-        "type": "text/plain"
-      },
+      "name": "test-reports",
       "item": [
         {
-          "id": "2a747c51-3fa4-42c4-83a9-7475cba46626",
           "name": "U.S. Steel SteelTrack List Test Reports",
+          "id": "7e438451-25f8-4245-a9fc-6af3dcd7f503",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "U.S. Steel SteelTrack List Test Reports",
-            "description": {
-              "content": "Returns physical, mechanical, and chemical test reports for steel products. Includes certified test reports with electronic signatures.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "test-reports"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "coilId",
-                  "value": "<string>",
-                  "description": "Filter by coil ID."
-                },
-                {
-                  "disabled": false,
-                  "key": "orderId",
-                  "value": "<string>",
-                  "description": "Filter by order ID."
-                },
-                {
-                  "disabled": false,
-                  "key": "reportType",
-                  "value": "<string>",
-                  "description": "Filter by test report type."
-                }
-              ],
-              "variable": []
-            },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/test-reports?coilId=<string>&orderId=<string>&reportType=CHEMICAL",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "test-reports"
+              ],
+              "query": [
+                {
+                  "description": "Filter by coil ID.",
+                  "key": "coilId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by order ID.",
+                  "key": "orderId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by test report type.",
+                  "key": "reportType",
+                  "value": "CHEMICAL"
+                }
+              ]
+            },
+            "description": "Returns physical, mechanical, and chemical test reports for steel products. Includes certified test reports with electronic signatures."
           },
           "response": [
             {
-              "id": "31003c30-fef4-4bd1-969a-56348916c2a0",
+              "id": "71124969-1ed1-4aee-80c7-9001fd149503",
               "name": "Test reports returned successfully.",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "test-reports"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "coilId",
-                      "value": "COIL-8765432"
-                    },
-                    {
-                      "key": "orderId",
-                      "value": "ORD-2025-001234"
-                    },
-                    {
-                      "key": "reportType",
-                      "value": "ALL"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/test-reports?coilId=<string>&orderId=<string>&reportType=CHEMICAL",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "test-reports"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by coil ID.",
+                      "key": "coilId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by order ID.",
+                      "key": "orderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by test report type.",
+                      "key": "reportType",
+                      "value": "CHEMICAL"
+                    }
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"total\": 1,\n  \"reports\": [\n    {\n      \"reportId\": \"RPT-2025-4321\",\n      \"coilId\": \"COIL-8765432\",\n      \"orderId\": \"ORD-2025-001234\",\n      \"product\": \"Cold-Rolled Coil\",\n      \"grade\": \"IF\",\n      \"reportType\": \"MECHANICAL\",\n      \"certified\": true,\n      \"reportDate\": \"2025-02-10\",\n      \"yieldStrength\": 34,\n      \"tensileStrength\": 47,\n      \"elongation\": 44\n    }\n  ]\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"reports\": [\n    {\n      \"reportId\": \"<string>\",\n      \"coilId\": \"<string>\",\n      \"orderId\": \"<string>\",\n      \"product\": \"<string>\",\n      \"grade\": \"<string>\",\n      \"reportType\": \"CHEMICAL\",\n      \"certified\": \"<boolean>\",\n      \"reportDate\": \"<date>\",\n      \"yieldStrength\": \"<number>\",\n      \"tensileStrength\": \"<number>\",\n      \"elongation\": \"<number>\"\n    },\n    {\n      \"reportId\": \"<string>\",\n      \"coilId\": \"<string>\",\n      \"orderId\": \"<string>\",\n      \"product\": \"<string>\",\n      \"grade\": \"<string>\",\n      \"reportType\": \"MECHANICAL\",\n      \"certified\": \"<boolean>\",\n      \"reportDate\": \"<date>\",\n      \"yieldStrength\": \"<number>\",\n      \"tensileStrength\": \"<number>\",\n      \"elongation\": \"<number>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-21T21:06:38.000Z",
+              "updatedAt": "2026-10-21T21:06:38.000Z",
+              "uid": "35240-71124969-1ed1-4aee-80c7-9001fd149503"
             },
             {
-              "id": "79e1c991-15aa-408c-8b4d-49ff2d874b9d",
+              "id": "10fbbc85-641b-454f-abee-2454855d176b",
               "name": "Unauthorized.",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "test-reports"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "coilId",
-                      "value": "COIL-8765432"
-                    },
-                    {
-                      "key": "orderId",
-                      "value": "ORD-2025-001234"
-                    },
-                    {
-                      "key": "reportType",
-                      "value": "ALL"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/test-reports?coilId=<string>&orderId=<string>&reportType=CHEMICAL",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "test-reports"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by coil ID.",
+                      "key": "coilId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by order ID.",
+                      "key": "orderId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by test report type.",
+                      "key": "reportType",
+                      "value": "CHEMICAL"
+                    }
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"code\": \"INVALID_REQUEST\",\n  \"message\": \"Invalid order ID format\",\n  \"details\": \"string\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": \"<string>\"\n}",
+              "createdAt": "2026-10-21T21:06:38.000Z",
+              "updatedAt": "2026-10-21T21:06:38.000Z",
+              "uid": "35240-10fbbc85-641b-454f-abee-2454855d176b"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-21T21:06:38.000Z",
+          "updatedAt": "2026-10-21T21:06:38.000Z",
+          "uid": "35240-7e438451-25f8-4245-a9fc-6af3dcd7f503"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://steeltrack.ussteel.com/api",
-      "key": "baseUrl"
+      "id": "eb907dcb-84a8-424b-8bd3-06766f356907",
+      "createdAt": "2026-10-21T21:06:38.000Z",
+      "updatedAt": "2026-10-21T21:06:38.000Z",
+      "uid": "35240-eb907dcb-84a8-424b-8bd3-06766f356907"
     }
   ],
   "auth": {
@@ -191,17 +191,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "f523cd94-e659-4151-99fa-b0cbe46291a6",
-    "name": "U.S. Steel SteelTrack Inventory Test Reports API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The U.S. Steel SteelTrack platform provides internet-based customer applications for order management, inventory tracking, shipment history, material release, and test reporting. This API exposes the core SteelTrack capabilities for integration with customer ERP, supply chain, and procurement systems.\n\nContact Support:\n Name: U.S. Steel Customer Service",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://steeltrack.ussteel.com/api"
     }
-  }
+  ]
 }

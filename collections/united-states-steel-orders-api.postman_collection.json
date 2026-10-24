@@ -1,517 +1,521 @@
 {
+  "info": {
+    "_postman_id": "ee92c271-c921-4410-a3b8-0161daeb1d4f",
+    "name": "U.S. Steel SteelTrack Orders API",
+    "description": "The U.S. Steel SteelTrack platform provides internet-based customer applications for order management, inventory tracking, shipment history, material release, and test reporting. This API exposes the core SteelTrack capabilities for integration with customer ERP, supply chain, and procurement systems.\n\nContact Support:\n Name: U.S. Steel Customer Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T21:06:25.000Z",
+    "updatedAt": "2026-10-21T21:06:25.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ee92c271-c921-4410-a3b8-0161daeb1d4f"
+  },
   "item": [
     {
-      "id": "80957d06-1b75-43d5-b421-5f4e38dc8559",
-      "name": "Orders",
-      "description": {
-        "content": "Order status and summary reporting operations",
-        "type": "text/plain"
-      },
+      "name": "orders",
       "item": [
         {
-          "id": "9834c003-729d-487f-bff0-55dd2ef49ed4",
+          "name": "{orderId}",
+          "item": [
+            {
+              "name": "U.S. Steel SteelTrack Get Order",
+              "id": "579ab520-c554-483a-91ab-af9055ea0a48",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/orders/:orderId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders",
+                    ":orderId"
+                  ],
+                  "variable": [
+                    {
+                      "id": "dc336bee-c833-42c8-8bdd-00d61899cd2e",
+                      "key": "orderId",
+                      "value": "<string>",
+                      "description": "(Required) The unique order identifier."
+                    }
+                  ]
+                },
+                "description": "Returns detailed information for a specific order including line items, production status, and delivery details."
+              },
+              "response": [
+                {
+                  "id": "527b912f-ecc7-4282-b926-c03026f32494",
+                  "name": "Order details returned successfully.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/orders/:orderId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "orders",
+                        ":orderId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "orderId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"orderId\": \"<string>\",\n  \"customerId\": \"<string>\",\n  \"purchaseOrder\": \"<string>\",\n  \"status\": \"CLOSED\",\n  \"facility\": \"<string>\",\n  \"product\": \"<string>\",\n  \"grade\": \"<string>\",\n  \"quantity\": \"<number>\",\n  \"quantityUnit\": \"<string>\",\n  \"orderDate\": \"<date>\",\n  \"requiredDate\": \"<date>\",\n  \"estimatedDeliveryDate\": \"<date>\"\n}",
+                  "createdAt": "2026-10-21T21:06:26.000Z",
+                  "updatedAt": "2026-10-21T21:06:26.000Z",
+                  "uid": "35240-527b912f-ecc7-4282-b926-c03026f32494"
+                },
+                {
+                  "id": "32ca17c4-d6ff-4185-9e8c-7ad5a4520e53",
+                  "name": "Unauthorized.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/orders/:orderId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "orders",
+                        ":orderId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "orderId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T21:06:26.000Z",
+                  "updatedAt": "2026-10-21T21:06:26.000Z",
+                  "uid": "35240-32ca17c4-d6ff-4185-9e8c-7ad5a4520e53"
+                },
+                {
+                  "id": "4a14d5c4-add9-4d62-aa69-0dbb09aba2a4",
+                  "name": "Order not found.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/orders/:orderId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "orders",
+                        ":orderId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "orderId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T21:06:26.000Z",
+                  "updatedAt": "2026-10-21T21:06:26.000Z",
+                  "uid": "35240-4a14d5c4-add9-4d62-aa69-0dbb09aba2a4"
+                }
+              ],
+              "createdAt": "2026-10-21T21:06:26.000Z",
+              "updatedAt": "2026-10-21T21:06:26.000Z",
+              "uid": "35240-579ab520-c554-483a-91ab-af9055ea0a48"
+            }
+          ],
+          "id": "1cc383b2-51e2-4734-b057-46110af80e79",
+          "createdAt": "2026-10-21T21:06:26.000Z",
+          "updatedAt": "2026-10-21T21:06:26.000Z",
+          "uid": "35240-1cc383b2-51e2-4734-b057-46110af80e79"
+        },
+        {
           "name": "U.S. Steel SteelTrack List Orders",
+          "id": "50db93c4-1468-4d8e-991e-0f11100b2481",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "U.S. Steel SteelTrack List Orders",
-            "description": {
-              "content": "Returns a list of orders with customizable filtering by facility, status, and date range. Supports sorting by multiple fields.",
-              "type": "text/plain"
-            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
             "url": {
+              "raw": "{{baseUrl}}/orders?facility=<string>&status=IN_PRODUCTION&customerId=<string>&fromDate=<date>&toDate=<date>&limit=<integer>&offset=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
               "path": [
                 "orders"
               ],
-              "host": [
-                "{{baseUrl}}"
-              ],
               "query": [
                 {
-                  "disabled": false,
+                  "description": "Filter by production facility code.",
                   "key": "facility",
-                  "value": "<string>",
-                  "description": "Filter by production facility code."
+                  "value": "<string>"
                 },
                 {
-                  "disabled": false,
+                  "description": "Filter by order status.",
                   "key": "status",
-                  "value": "<string>",
-                  "description": "Filter by order status."
+                  "value": "IN_PRODUCTION"
                 },
                 {
-                  "disabled": false,
+                  "description": "Filter by customer ID.",
                   "key": "customerId",
-                  "value": "<string>",
-                  "description": "Filter by customer ID."
+                  "value": "<string>"
                 },
                 {
-                  "disabled": false,
+                  "description": "Start date for order date range filter (YYYY-MM-DD).",
                   "key": "fromDate",
-                  "value": "<date>",
-                  "description": "Start date for order date range filter (YYYY-MM-DD)."
+                  "value": "<date>"
                 },
                 {
-                  "disabled": false,
+                  "description": "End date for order date range filter (YYYY-MM-DD).",
                   "key": "toDate",
-                  "value": "<date>",
-                  "description": "End date for order date range filter (YYYY-MM-DD)."
+                  "value": "<date>"
                 },
                 {
-                  "disabled": false,
+                  "description": "Maximum number of results to return.",
                   "key": "limit",
-                  "value": "<integer>",
-                  "description": "Maximum number of results to return."
+                  "value": "<integer>"
                 },
                 {
-                  "disabled": false,
+                  "description": "Number of results to skip for pagination.",
                   "key": "offset",
-                  "value": "<integer>",
-                  "description": "Number of results to skip for pagination."
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "eaf85e7c-0d88-4b35-b12e-4d53a57577d7",
-              "name": "Orders returned successfully.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "orders"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "facility",
-                      "value": "GH"
-                    },
-                    {
-                      "key": "status",
-                      "value": "OPEN"
-                    },
-                    {
-                      "key": "customerId",
-                      "value": "CUST-001234"
-                    },
-                    {
-                      "key": "fromDate",
-                      "value": "2025-01-01"
-                    },
-                    {
-                      "key": "toDate",
-                      "value": "2025-03-31"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "50"
-                    },
-                    {
-                      "key": "offset",
-                      "value": "0"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"total\": 2,\n  \"orders\": [\n    {\n      \"orderId\": \"ORD-2025-001234\",\n      \"customerId\": \"CUST-001234\",\n      \"purchaseOrder\": \"PO-2025-5678\",\n      \"status\": \"IN_PRODUCTION\",\n      \"facility\": \"GH\",\n      \"product\": \"Hot-Rolled Coil\",\n      \"quantity\": 50,\n      \"quantityUnit\": \"tons\",\n      \"orderDate\": \"2025-01-15\",\n      \"requiredDate\": \"2025-03-01\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "8bb912fe-2902-495e-bada-8a0388f966b5",
-              "name": "Bad request.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "orders"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "facility",
-                      "value": "GH"
-                    },
-                    {
-                      "key": "status",
-                      "value": "OPEN"
-                    },
-                    {
-                      "key": "customerId",
-                      "value": "CUST-001234"
-                    },
-                    {
-                      "key": "fromDate",
-                      "value": "2025-01-01"
-                    },
-                    {
-                      "key": "toDate",
-                      "value": "2025-03-31"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "50"
-                    },
-                    {
-                      "key": "offset",
-                      "value": "0"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Bad Request",
-              "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": \"INVALID_REQUEST\",\n  \"message\": \"Invalid order ID format\",\n  \"details\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "00ca67ef-2b69-499a-8947-d176a5f43cf4",
-              "name": "Unauthorized.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "orders"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "facility",
-                      "value": "GH"
-                    },
-                    {
-                      "key": "status",
-                      "value": "OPEN"
-                    },
-                    {
-                      "key": "customerId",
-                      "value": "CUST-001234"
-                    },
-                    {
-                      "key": "fromDate",
-                      "value": "2025-01-01"
-                    },
-                    {
-                      "key": "toDate",
-                      "value": "2025-03-31"
-                    },
-                    {
-                      "key": "limit",
-                      "value": "50"
-                    },
-                    {
-                      "key": "offset",
-                      "value": "0"
-                    }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": \"INVALID_REQUEST\",\n  \"message\": \"Invalid order ID format\",\n  \"details\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "0fb488b0-c34d-4a9e-9b00-8d892dfb49fb",
-          "name": "U.S. Steel SteelTrack Get Order",
-          "request": {
-            "name": "U.S. Steel SteelTrack Get Order",
-            "description": {
-              "content": "Returns detailed information for a specific order including line items, production status, and delivery details.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "orders",
-                ":orderId"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "orderId",
-                  "description": "(Required) The unique order identifier."
+                  "value": "<integer>"
                 }
               ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
+            "description": "Returns a list of orders with customizable filtering by facility, status, and date range. Supports sorting by multiple fields."
           },
           "response": [
             {
-              "id": "2dc8045f-9873-4924-80e8-1ce561124583",
-              "name": "Order details returned successfully.",
+              "id": "9159f705-f6b7-4cb3-b7ad-d666a76bf47a",
+              "name": "Orders returned successfully.",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "orders",
-                    ":orderId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orderId",
-                      "description": "(Required) The unique order identifier."
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/orders?facility=<string>&status=IN_PRODUCTION&customerId=<string>&fromDate=<date>&toDate=<date>&limit=<integer>&offset=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by production facility code.",
+                      "key": "facility",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by order status.",
+                      "key": "status",
+                      "value": "IN_PRODUCTION"
+                    },
+                    {
+                      "description": "Filter by customer ID.",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Start date for order date range filter (YYYY-MM-DD).",
+                      "key": "fromDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for order date range filter (YYYY-MM-DD).",
+                      "key": "toDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Maximum number of results to return.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination.",
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"orderId\": \"ORD-2025-001234\",\n  \"customerId\": \"CUST-001234\",\n  \"purchaseOrder\": \"PO-2025-5678\",\n  \"status\": \"IN_PRODUCTION\",\n  \"facility\": \"Gary Works\",\n  \"product\": \"Hot-Rolled Coil\",\n  \"grade\": \"A36\",\n  \"quantity\": 50,\n  \"quantityUnit\": \"tons\",\n  \"orderDate\": \"2025-01-15\",\n  \"requiredDate\": \"2025-03-01\",\n  \"estimatedDeliveryDate\": \"2025-02-28\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"orders\": [\n    {\n      \"orderId\": \"<string>\",\n      \"customerId\": \"<string>\",\n      \"purchaseOrder\": \"<string>\",\n      \"status\": \"CANCELLED\",\n      \"facility\": \"<string>\",\n      \"product\": \"<string>\",\n      \"grade\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"quantityUnit\": \"<string>\",\n      \"orderDate\": \"<date>\",\n      \"requiredDate\": \"<date>\",\n      \"estimatedDeliveryDate\": \"<date>\"\n    },\n    {\n      \"orderId\": \"<string>\",\n      \"customerId\": \"<string>\",\n      \"purchaseOrder\": \"<string>\",\n      \"status\": \"IN_PRODUCTION\",\n      \"facility\": \"<string>\",\n      \"product\": \"<string>\",\n      \"grade\": \"<string>\",\n      \"quantity\": \"<number>\",\n      \"quantityUnit\": \"<string>\",\n      \"orderDate\": \"<date>\",\n      \"requiredDate\": \"<date>\",\n      \"estimatedDeliveryDate\": \"<date>\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-21T21:06:26.000Z",
+              "updatedAt": "2026-10-21T21:06:26.000Z",
+              "uid": "35240-9159f705-f6b7-4cb3-b7ad-d666a76bf47a"
             },
             {
-              "id": "c48eb947-225e-4c91-838d-f74d94676546",
-              "name": "Unauthorized.",
+              "id": "ef008e75-83f1-410b-b692-c244acd64745",
+              "name": "Bad request.",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    "orders",
-                    ":orderId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orderId",
-                      "description": "(Required) The unique order identifier."
-                    }
-                  ]
-                },
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
                   }
                 ],
+                "url": {
+                  "raw": "{{baseUrl}}/orders?facility=<string>&status=IN_PRODUCTION&customerId=<string>&fromDate=<date>&toDate=<date>&limit=<integer>&offset=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by production facility code.",
+                      "key": "facility",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by order status.",
+                      "key": "status",
+                      "value": "IN_PRODUCTION"
+                    },
+                    {
+                      "description": "Filter by customer ID.",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Start date for order date range filter (YYYY-MM-DD).",
+                      "key": "fromDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for order date range filter (YYYY-MM-DD).",
+                      "key": "toDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Maximum number of results to return.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination.",
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": \"<string>\"\n}",
+              "createdAt": "2026-10-21T21:06:26.000Z",
+              "updatedAt": "2026-10-21T21:06:26.000Z",
+              "uid": "35240-ef008e75-83f1-410b-b692-c244acd64745"
+            },
+            {
+              "id": "2eef03b5-f527-4d6d-b8b2-0b81a3f57905",
+              "name": "Unauthorized.",
+              "originalRequest": {
                 "method": "GET",
-                "body": {}
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/orders?facility=<string>&status=IN_PRODUCTION&customerId=<string>&fromDate=<date>&toDate=<date>&limit=<integer>&offset=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter by production facility code.",
+                      "key": "facility",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by order status.",
+                      "key": "status",
+                      "value": "IN_PRODUCTION"
+                    },
+                    {
+                      "description": "Filter by customer ID.",
+                      "key": "customerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Start date for order date range filter (YYYY-MM-DD).",
+                      "key": "fromDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "End date for order date range filter (YYYY-MM-DD).",
+                      "key": "toDate",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Maximum number of results to return.",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of results to skip for pagination.",
+                      "key": "offset",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"code\": \"INVALID_REQUEST\",\n  \"message\": \"Invalid order ID format\",\n  \"details\": \"string\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "f3e1b3fd-0d70-44b2-b812-b922d4c56a6d",
-              "name": "Order not found.",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "orders",
-                    ":orderId"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "orderId",
-                      "description": "(Required) The unique order identifier."
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"code\": \"INVALID_REQUEST\",\n  \"message\": \"Invalid order ID format\",\n  \"details\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": \"<string>\"\n}",
+              "createdAt": "2026-10-21T21:06:26.000Z",
+              "updatedAt": "2026-10-21T21:06:26.000Z",
+              "uid": "35240-2eef03b5-f527-4d6d-b8b2-0b81a3f57905"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-21T21:06:26.000Z",
+          "updatedAt": "2026-10-21T21:06:26.000Z",
+          "uid": "35240-50db93c4-1468-4d8e-991e-0f11100b2481"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://steeltrack.ussteel.com/api",
-      "key": "baseUrl"
+      "id": "4b8028f0-ac6e-4e59-a034-69e5b6c4c2e0",
+      "createdAt": "2026-10-21T21:06:26.000Z",
+      "updatedAt": "2026-10-21T21:06:26.000Z",
+      "uid": "35240-4b8028f0-ac6e-4e59-a034-69e5b6c4c2e0"
     }
   ],
   "auth": {
@@ -519,17 +523,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "2fcf6c84-184b-42a6-924e-196077f075fb",
-    "name": "U.S. Steel SteelTrack Inventory Orders API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The U.S. Steel SteelTrack platform provides internet-based customer applications for order management, inventory tracking, shipment history, material release, and test reporting. This API exposes the core SteelTrack capabilities for integration with customer ERP, supply chain, and procurement systems.\n\nContact Support:\n Name: U.S. Steel Customer Service",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://steeltrack.ussteel.com/api"
     }
-  }
+  ]
 }

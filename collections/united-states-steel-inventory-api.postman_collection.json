@@ -1,231 +1,234 @@
 {
+  "info": {
+    "_postman_id": "c1c8296b-cf09-48f7-be23-40ac1741be20",
+    "name": "U.S. Steel SteelTrack Inventory API",
+    "description": "The U.S. Steel SteelTrack platform provides internet-based customer applications for order management, inventory tracking, shipment history, material release, and test reporting. This API exposes the core SteelTrack capabilities for integration with customer ERP, supply chain, and procurement systems.\n\nContact Support:\n Name: U.S. Steel Customer Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T21:06:21.000Z",
+    "updatedAt": "2026-10-21T21:06:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c1c8296b-cf09-48f7-be23-40ac1741be20"
+  },
   "item": [
     {
-      "id": "5846fafd-fa99-4c28-99df-baa944258ca6",
-      "name": "Inventory",
-      "description": {
-        "content": "Inventory tracking and management operations",
-        "type": "text/plain"
-      },
+      "name": "inventory",
       "item": [
         {
-          "id": "75d77177-b516-46d5-94f0-641b575165b7",
           "name": "U.S. Steel SteelTrack List Inventory",
+          "id": "c788dbc6-37c0-42ac-9874-92afd45dc5e5",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "U.S. Steel SteelTrack List Inventory",
-            "description": {
-              "content": "Returns on-hand inventory available for the customer, filterable by product, grade, and facility. Supports sorting by multiple fields including OP, customer, PO, and part number.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "inventory"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "customerId",
-                  "value": "<string>",
-                  "description": "Filter by customer ID."
-                },
-                {
-                  "disabled": false,
-                  "key": "product",
-                  "value": "<string>",
-                  "description": "Filter by product type."
-                },
-                {
-                  "disabled": false,
-                  "key": "grade",
-                  "value": "<string>",
-                  "description": "Filter by steel grade."
-                },
-                {
-                  "disabled": false,
-                  "key": "facility",
-                  "value": "<string>",
-                  "description": "Filter by production facility."
-                },
-                {
-                  "disabled": false,
-                  "key": "limit",
-                  "value": "<integer>",
-                  "description": "Maximum number of results to return."
-                },
-                {
-                  "disabled": false,
-                  "key": "offset",
-                  "value": "<integer>",
-                  "description": "Pagination offset."
-                }
-              ],
-              "variable": []
-            },
+            "method": "GET",
             "header": [
               {
                 "key": "Accept",
                 "value": "application/json"
               }
             ],
-            "method": "GET",
-            "auth": null
+            "url": {
+              "raw": "{{baseUrl}}/inventory?customerId=<string>&product=<string>&grade=<string>&facility=<string>&limit=<integer>&offset=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "inventory"
+              ],
+              "query": [
+                {
+                  "description": "Filter by customer ID.",
+                  "key": "customerId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by product type.",
+                  "key": "product",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by steel grade.",
+                  "key": "grade",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by production facility.",
+                  "key": "facility",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of results to return.",
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Pagination offset.",
+                  "key": "offset",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Returns on-hand inventory available for the customer, filterable by product, grade, and facility. Supports sorting by multiple fields including OP, customer, PO, and part number."
           },
           "response": [
             {
-              "id": "c82c0f2b-aab1-4b72-ba9f-e74da6915ec1",
+              "id": "682dcc5b-d482-4010-941d-bf10ff7b0cd8",
               "name": "Inventory list returned successfully.",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    "inventory"
-                  ],
+                  "raw": "{{baseUrl}}/inventory?customerId=<string>&product=<string>&grade=<string>&facility=<string>&limit=<integer>&offset=<integer>",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    "inventory"
+                  ],
                   "query": [
                     {
+                      "description": "Filter by customer ID.",
                       "key": "customerId",
-                      "value": "CUST-001234"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Filter by product type.",
                       "key": "product",
-                      "value": "Cold-Rolled Coil"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Filter by steel grade.",
                       "key": "grade",
-                      "value": "IF"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Filter by production facility.",
                       "key": "facility",
                       "value": "<string>"
                     },
                     {
+                      "description": "Maximum number of results to return.",
                       "key": "limit",
-                      "value": "100"
+                      "value": "<integer>"
                     },
                     {
+                      "description": "Pagination offset.",
                       "key": "offset",
-                      "value": "0"
+                      "value": "<integer>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"total\": 1,\n  \"items\": [\n    {\n      \"itemId\": \"INV-CR-001234\",\n      \"customerId\": \"CUST-001234\",\n      \"orderId\": \"ORD-2025-001234\",\n      \"product\": \"Cold-Rolled Coil\",\n      \"grade\": \"IF\",\n      \"coilId\": \"COIL-8765432\",\n      \"weight\": 28.5,\n      \"weightUnit\": \"tons\",\n      \"location\": \"Gary Works\",\n      \"status\": \"AVAILABLE\"\n    }\n  ]\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"total\": \"<integer>\",\n  \"items\": [\n    {\n      \"itemId\": \"<string>\",\n      \"customerId\": \"<string>\",\n      \"orderId\": \"<string>\",\n      \"product\": \"<string>\",\n      \"grade\": \"<string>\",\n      \"coilId\": \"<string>\",\n      \"weight\": \"<number>\",\n      \"weightUnit\": \"<string>\",\n      \"location\": \"<string>\",\n      \"status\": \"RESERVED\"\n    },\n    {\n      \"itemId\": \"<string>\",\n      \"customerId\": \"<string>\",\n      \"orderId\": \"<string>\",\n      \"product\": \"<string>\",\n      \"grade\": \"<string>\",\n      \"coilId\": \"<string>\",\n      \"weight\": \"<number>\",\n      \"weightUnit\": \"<string>\",\n      \"location\": \"<string>\",\n      \"status\": \"ON_HOLD\"\n    }\n  ]\n}",
+              "createdAt": "2026-10-21T21:06:21.000Z",
+              "updatedAt": "2026-10-21T21:06:21.000Z",
+              "uid": "35240-682dcc5b-d482-4010-941d-bf10ff7b0cd8"
             },
             {
-              "id": "0b481670-4fe7-464c-8a2e-63b94b6a445b",
+              "id": "84c7354c-5105-4525-a49f-377acc20b8e1",
               "name": "Unauthorized.",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    "inventory"
-                  ],
+                  "raw": "{{baseUrl}}/inventory?customerId=<string>&product=<string>&grade=<string>&facility=<string>&limit=<integer>&offset=<integer>",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    "inventory"
+                  ],
                   "query": [
                     {
+                      "description": "Filter by customer ID.",
                       "key": "customerId",
-                      "value": "CUST-001234"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Filter by product type.",
                       "key": "product",
-                      "value": "Cold-Rolled Coil"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Filter by steel grade.",
                       "key": "grade",
-                      "value": "IF"
+                      "value": "<string>"
                     },
                     {
+                      "description": "Filter by production facility.",
                       "key": "facility",
                       "value": "<string>"
                     },
                     {
+                      "description": "Maximum number of results to return.",
                       "key": "limit",
-                      "value": "100"
+                      "value": "<integer>"
                     },
                     {
+                      "description": "Pagination offset.",
                       "key": "offset",
-                      "value": "0"
+                      "value": "<integer>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: bearer",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Bearer <token>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "Unauthorized",
               "code": 401,
+              "_postman_previewlanguage": "json",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "application/json"
                 }
               ],
-              "body": "{\n  \"code\": \"INVALID_REQUEST\",\n  \"message\": \"Invalid order ID format\",\n  \"details\": \"string\"\n}",
               "cookie": [],
-              "_postman_previewlanguage": "json"
+              "responseTime": null,
+              "body": "{\n  \"code\": \"<string>\",\n  \"message\": \"<string>\",\n  \"details\": \"<string>\"\n}",
+              "createdAt": "2026-10-21T21:06:21.000Z",
+              "updatedAt": "2026-10-21T21:06:21.000Z",
+              "uid": "35240-84c7354c-5105-4525-a49f-377acc20b8e1"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-21T21:06:21.000Z",
+          "updatedAt": "2026-10-21T21:06:21.000Z",
+          "uid": "35240-c788dbc6-37c0-42ac-9874-92afd45dc5e5"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://steeltrack.ussteel.com/api",
-      "key": "baseUrl"
+      "id": "53a8f962-2523-45d0-b33f-c1f0172dcf44",
+      "createdAt": "2026-10-21T21:06:21.000Z",
+      "updatedAt": "2026-10-21T21:06:21.000Z",
+      "uid": "35240-53a8f962-2523-45d0-b33f-c1f0172dcf44"
     }
   ],
   "auth": {
@@ -233,17 +236,15 @@
     "bearer": [
       {
         "key": "token",
-        "value": "{{bearerToken}}"
+        "value": "{{bearerToken}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "52a8ebee-e3ce-4ce7-b677-4fc859f718b1",
-    "name": "U.S. Steel SteelTrack Inventory API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The U.S. Steel SteelTrack platform provides internet-based customer applications for order management, inventory tracking, shipment history, material release, and test reporting. This API exposes the core SteelTrack capabilities for integration with customer ERP, supply chain, and procurement systems.\n\nContact Support:\n Name: U.S. Steel Customer Service",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://steeltrack.ussteel.com/api"
     }
-  }
+  ]
 }
