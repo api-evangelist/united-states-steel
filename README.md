@@ -1,4 +1,4 @@
-# United States Steel (united-states-steel)
+# United States Steel
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,62 +66,179 @@
 
 United States Steel Corporation (U.S. Steel) is an integrated steel producer headquartered in Pittsburgh, Pennsylvania, with major production operations in the United States and Central Europe. The company serves customers in automotive, construction, container, energy, and industrial markets with advanced high-strength steels, coated products, hot-rolled and cold-rolled coils, electrical steel, and tubular products. U.S. Steel provides digital customer tools through the SteelTrack platform for order management, inventory tracking, shipment history, and certified test reporting.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/united-states-steel/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/united-states-steel/refs/heads/main/apis.yml)
+**Areas:** Steel · Manufacturing · Automotive · Construction · Energy · Supply Chain · Fortune 500
 
-## Tags
+## United States Steel on APIs.io
 
-- Steel
-- Manufacturing
-- Automotive
-- Construction
-- Energy
-- Supply Chain
+Everything profiled for United States Steel is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/united-states-steel/](https://apis.io/providers/united-states-steel/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (4)
 
-- **Modified:** 2026-05-19
+- [United States Steel Inventory API](https://apis.io/apis/united-states-steel/united-states-steel-inventory-api/) — Inventory tracking and management operations
+- [United States Steel Orders API](https://apis.io/apis/united-states-steel/united-states-steel-orders-api/) — Order status and summary reporting operations
+- [United States Steel Shipments API](https://apis.io/apis/united-states-steel/united-states-steel-shipments-api/) — Shipment history and tracking operations
+- [United States Steel Test Reports API](https://apis.io/apis/united-states-steel/united-states-steel-test-reports-api/) — Physical, mechanical, and chemical test report operations
 
-## APIs
+### Published properties
 
-### U.S. Steel SteelTrack API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-SteelTrack is U.S. Steel's internet-based customer platform providing order status reporting, inventory tracking, shipment history, material release, and physical and chemical test reporting. The API enables ERP and supply chain integration for steel order management and quality documentation.
+#### Agentic access (1)
 
-- **Human URL:** [https://www.ussteel.com/about-us/doing-business-with-u.-s.-steel](https://www.ussteel.com/about-us/doing-business-with-u.-s.-steel)
-- **Base URL:** `https://steeltrack.ussteel.com/api`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [United States Steel Agentic Access](https://apis.io/agentic-access/united-states-steel/united-states-steel-agentic-access/)
 
-- Steel
-- Supply Chain
-- Order Management
-- Manufacturing
+#### JSON Schema (8)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://www.ussteel.com/about-us/doing-business-with-u.-s.-steel)
-- [OpenAPI](openapi/united-states-steel-steeltrack-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/united-states-steel-steeltrack.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/united-states-steel-steeltrack.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/steeltrack-order-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/steeltrack-shipment-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/steeltrack-order-structure.json)
-- [JSON-LD](json-ld/united-states-steel-steeltrack-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Example](examples/steeltrack-order-example.json)
+- [InventoryItem](https://apis.io/schemas/united-states-steel/steeltrack-inventory-item/)
+- [InventoryList](https://apis.io/schemas/united-states-steel/steeltrack-inventory-list/)
+- [Order](https://apis.io/schemas/united-states-steel/steeltrack-order/)
+- [OrderList](https://apis.io/schemas/united-states-steel/steeltrack-order-list/)
+- [Shipment](https://apis.io/schemas/united-states-steel/steeltrack-shipment/)
+- [ShipmentList](https://apis.io/schemas/united-states-steel/steeltrack-shipment-list/)
+- [TestReport](https://apis.io/schemas/united-states-steel/steeltrack-test-report/)
+- [TestReportList](https://apis.io/schemas/united-states-steel/steeltrack-test-report-list/)
 
-## Common Properties
+#### JSON Structure (8)
 
-- [LinkedIn](https://www.linkedin.com/company/u-s-steel)
+Data models expressed in JSON Structure.
+
+- [Steeltrack Inventory Item Structure](https://apis.io/json-structure/united-states-steel/steeltrack-inventory-item-structure/)
+- [Steeltrack Inventory List Structure](https://apis.io/json-structure/united-states-steel/steeltrack-inventory-list-structure/)
+- [Steeltrack Order List Structure](https://apis.io/json-structure/united-states-steel/steeltrack-order-list-structure/)
+- [Steeltrack Order Structure](https://apis.io/json-structure/united-states-steel/steeltrack-order-structure/)
+- [Steeltrack Shipment List Structure](https://apis.io/json-structure/united-states-steel/steeltrack-shipment-list-structure/)
+- [Steeltrack Shipment Structure](https://apis.io/json-structure/united-states-steel/steeltrack-shipment-structure/)
+- [Steeltrack Test Report List Structure](https://apis.io/json-structure/united-states-steel/steeltrack-test-report-list-structure/)
+- [Steeltrack Test Report Structure](https://apis.io/json-structure/united-states-steel/steeltrack-test-report-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [United States Steel Steeltrack Context](https://apis.io/jsonld/united-states-steel/united-states-steel-steeltrack-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [United States Steel Vocabulary](https://apis.io/vocabularies/united-states-steel/united-states-steel-vocabulary/)
+
+#### Examples (8)
+
+Example requests and responses.
+
+- [Steeltrack Inventory Item Example](https://apis.io/examples/united-states-steel/steeltrack-inventory-item-example/)
+- [Steeltrack Inventory List Example](https://apis.io/examples/united-states-steel/steeltrack-inventory-list-example/)
+- [Steeltrack Order Example](https://apis.io/examples/united-states-steel/steeltrack-order-example/)
+- [Steeltrack Order List Example](https://apis.io/examples/united-states-steel/steeltrack-order-list-example/)
+- [Steeltrack Shipment Example](https://apis.io/examples/united-states-steel/steeltrack-shipment-example/)
+- [Steeltrack Shipment List Example](https://apis.io/examples/united-states-steel/steeltrack-shipment-list-example/)
+- [Steeltrack Test Report Example](https://apis.io/examples/united-states-steel/steeltrack-test-report-example/)
+- [Steeltrack Test Report List Example](https://apis.io/examples/united-states-steel/steeltrack-test-report-list-example/)
+
+#### Collections (5)
+
+Postman and Open Collection request collections.
+
+- [U.S. Steel SteelTrack Inventory API](https://apis.io/collections/united-states-steel/open-united-states-steel-inventory-api/)
+- [U.S. Steel SteelTrack Inventory Orders API](https://apis.io/collections/united-states-steel/open-united-states-steel-orders-api/)
+- [U.S. Steel SteelTrack Inventory Shipments API](https://apis.io/collections/united-states-steel/open-united-states-steel-shipments-api/)
+- [U.S. Steel SteelTrack API](https://apis.io/collections/united-states-steel/open-united-states-steel-steeltrack/)
+- [U.S. Steel SteelTrack Inventory Test Reports API](https://apis.io/collections/united-states-steel/open-united-states-steel-test-reports-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [United States Steel — jsonschema rules](https://apis.io/rules/united-states-steel/united-states-steel-jsonschema-spectral-rules/)
+- [United States Steel API Rules](https://apis.io/rules/united-states-steel/united-states-steel-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [United States Steel Authentication](https://apis.io/security/united-states-steel/united-states-steel-authentication/)
+- [United States Steel Domain Security](https://apis.io/security/united-states-steel/united-states-steel-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [United States Steel Plans Pricing](https://apis.io/plans/united-states-steel/united-states-steel-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [United States Steel Rate Limits](https://apis.io/rate-limits/united-states-steel/united-states-steel-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [United States Steel Finops](https://apis.io/finops/united-states-steel/united-states-steel-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.ussteel.com)
-- [Portal](https://www.ussteel.com/customers/solutions)
 - [Documentation](https://www.ussteel.com/about-us/doing-business-with-u.-s.-steel)
-- [Spectral Rules](rules/united-states-steel-spectral-rules.yml)
-- [Vocabulary](vocabulary/united-states-steel-vocabulary.yaml)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
+- [Blog](https://www.ussteel.com/media/newsroom)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 27.4** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 30.4 |
+| Contract governance | 27.3 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 33.3 |
+| Access clarity | 7.9 |
+
+**Agent readiness 33.2** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 13.9** — Energy & Utilities
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/united-states-steel/](https://apis.io/providers/united-states-steel/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for United States Steel: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/united-states-steel/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
